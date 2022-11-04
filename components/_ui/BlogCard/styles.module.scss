@@ -1,5 +1,5 @@
 .wrapper {
-  @apply w-full;
+  @apply w-full rounded-xl overflow-hidden;
 
   &:hover {
     @apply cursor-pointer;
@@ -19,7 +19,7 @@
       @apply absolute bottom-0 w-full text-white opacity-80 transition-all;
 
       .category {
-        @apply text-xl bg-blue-500 px-2 py-1 font-bold w-fit;
+        @apply text-xl bg-blue-500 px-2 py-1 font-bold w-fit rounded-tr-xl;
       }
 
       .title {
