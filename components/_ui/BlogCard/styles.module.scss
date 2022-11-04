@@ -1,0 +1,28 @@
+.wrapper {
+  @apply w-full;
+
+  &:hover {
+    .imageWrapper .textWrapper {
+      @apply opacity-100;
+    }
+  }
+  .imageWrapper {
+    @apply relative h-64;
+
+    .image {
+      @apply object-cover w-full h-full;
+    }
+
+    .textWrapper {
+      @apply absolute bottom-0 w-full text-white opacity-80 transition-all;
+
+      .category {
+        @apply text-xl bg-blue-500 px-2 py-1 font-bold w-fit;
+      }
+
+      .title {
+        @apply text-base font-semibold bg-purple-600 px-2 py-1;
+      }
+    }
+  }
+}
