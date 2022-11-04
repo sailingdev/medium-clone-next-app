@@ -68,9 +68,11 @@ const blogList = [
 const HomePage: React.FC = () => {
   return (
     <section className={styles.wrapper}>
-      {blogList.map((item, index) => (
-        <BlogCard key={index} {...item} />
-      ))}
+      <div className={styles.blogWrapper}>
+        {blogList.map((item, index) => (
+          <BlogCard key={index} {...item} />
+        ))}
+      </div>
     </section>
   );
 };
