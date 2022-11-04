@@ -2,6 +2,8 @@
   @apply w-full;
 
   &:hover {
+    @apply cursor-pointer;
+
     .imageWrapper .textWrapper {
       @apply opacity-100;
     }

@@ -1,10 +1,12 @@
 import React, { Fragment } from "react";
-import styles from "./styles.module.scss";
 import Image from "next/image";
-import logoImage from "../../assets/image/logo.png";
+import Link from "next/link";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+
+import logoImage from "../../assets/image/logo.png";
 import SearchBox from "../../components/_ui/SearchBox";
+import styles from "./styles.module.scss";
 
 const navLinkItem = [
   {
@@ -39,9 +41,9 @@ const Header: React.FC = () => {
                 <div className={styles.linkTitleWrapper}>
                   {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
                   {navLinkItem.map((navItem, index) => (
-                    <a href={navItem.link} key={index} className={styles.titleWrapper}>
+                    <Link href={navItem.link} key={index} className={styles.titleWrapper}>
                       {navItem.label}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -90,19 +92,19 @@ const Header: React.FC = () => {
                   >
                     <Menu.Items className={styles.menuItemWrapper}>
                       <Menu.Item>
-                        <a href="#" className={styles.menuItem}>
+                        <Link href="/about" className={styles.menuItem}>
                           Your Profile
-                        </a>
+                        </Link>
                       </Menu.Item>
                       <Menu.Item>
-                        <a href="#" className={styles.menuItem}>
+                        <Link href="#" className={styles.menuItem}>
                           Settings
-                        </a>
+                        </Link>
                       </Menu.Item>
                       <Menu.Item>
-                        <a href="#" className={styles.menuItem}>
+                        <Link href="#" className={styles.menuItem}>
                           Sign out
-                        </a>
+                        </Link>
                       </Menu.Item>
                     </Menu.Items>
                   </Transition>
@@ -115,14 +117,11 @@ const Header: React.FC = () => {
             <div className={styles.linkWrapper}>
               {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800" */}
               {navLinkItem.map((navItem, index) => (
-                <Disclosure.Button
-                  as="a"
-                  href={navItem.link}
-                  key={index}
-                  className={styles.linkItem}
-                >
-                  {navItem.label}
-                </Disclosure.Button>
+                <Link href={navItem.link} key={index}>
+                  <Disclosure.Button as="div" className={styles.linkItem}>
+                    {navItem.label}
+                  </Disclosure.Button>
+                </Link>
               ))}
             </div>
             <div className={styles.profileWrapper}>
@@ -146,15 +145,21 @@ const Header: React.FC = () => {
                 </button>
               </div>
               <div className={styles.buttonWrapper}>
-                <Disclosure.Button as="a" href="#" className={styles.button}>
-                  Your Profile
-                </Disclosure.Button>
-                <Disclosure.Button as="a" href="#" className={styles.button}>
-                  Settings
-                </Disclosure.Button>
-                <Disclosure.Button as="a" href="#" className={styles.button}>
-                  Sign out
-                </Disclosure.Button>
+                <Link href="/">
+                  <Disclosure.Button as="div" className={styles.button}>
+                    Your Profile
+                  </Disclosure.Button>
+                </Link>
+                <Link href="/">
+                  <Disclosure.Button as="div" className={styles.button}>
+                    Settings
+                  </Disclosure.Button>
+                </Link>
+                <Link href="/">
+                  <Disclosure.Button as="div" className={styles.button}>
+                    Sign out
+                  </Disclosure.Button>
+                </Link>
               </div>
             </div>
           </Disclosure.Panel>
