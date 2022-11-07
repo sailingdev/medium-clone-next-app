@@ -24,7 +24,7 @@ const MainLayout: React.FC<Props> = ({
       <PageMeta title={title} description={description} keywords={keywords} url={url} />
 
       <Header />
-      <div className="bg-white">{children}</div>
+      <div className="text-black bg-white">{children}</div>
       <Footer />
     </>
   );
