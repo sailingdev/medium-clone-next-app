@@ -23,25 +23,16 @@ const BlogPage: React.FC = () => {
               <Image src={blog.avatar} alt="no avatar" className={styles.avatar} />
               <p>
                 Blog post by
-                <span> Anna Agnihotri</span>- Published at {new Date().toLocaleString()}
+                <span className={styles.authorText}> Anna Agnihotri</span>- Published at{" "}
+                {new Date().toLocaleString()}
               </p>
             </div>
             <div className={styles.descriptionWrapper}>
-              <p className={styles.description}>
-                {`NextJS is called 'The React Framework for Production'. `}
-              </p>
-              <p>
-                Next.js gives us a better developer experience with all the features we
-                need for production: hybrid static & server rendering, TypeScript support,
-                smart bundling, route pre-fetching, and more.
-              </p>
-              <Image src={blog.image} alt="no image" className="w-full my-2" />
-              <p className={styles.description}>
-                Thankfully, less config is needed. All thanks to the amazing community of
-                us developers NextJS is more popular than ever.
-              </p>
+              <p className={styles.description}>{blog.overview}</p>
+              <Image src={blog.image} alt="no image" className={styles.blogImage} />
+              <p className={styles.description}>{blog.description}</p>
             </div>
-            <hr className="max-w-lg mx-auto my-20 border border-indigo-500" />
+            <hr className={styles.line} />
 
             <div className={styles.comment}>
               <AddComment avatar={blog.avatar} />

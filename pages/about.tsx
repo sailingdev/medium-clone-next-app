@@ -3,17 +3,19 @@ import React from "react";
 import AboutPage from "../components/_pages/About";
 import MainLayout from "../layout/MainLayout";
 
-const About: React.FC = () => {
+const About = () => {
+  return <AboutPage />;
+};
+
+About.getLayout = function getLayout(page: React.ReactElement) {
   return (
-    <>
-      <MainLayout
-        title="About"
-        description="this is homepage description"
-        keywords="this is keywords"
-      >
-        <AboutPage />
-      </MainLayout>
-    </>
+    <MainLayout
+      title="Home"
+      description="this is homepage description"
+      keywords="this is keywords"
+    >
+      {page}
+    </MainLayout>
   );
 };
 

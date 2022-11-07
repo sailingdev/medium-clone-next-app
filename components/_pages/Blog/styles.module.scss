@@ -1,5 +1,5 @@
 .image {
-  @apply object-cover w-full h-350;
+  @apply object-cover w-full desktop:h-350 tablet:h-250 phone:h-200 h-132;
 }
 .blogWrapper {
   @apply max-w-screen-tablet mx-auto p-20;
@@ -18,15 +18,27 @@
     .avatar {
       @apply h-40 w-40 rounded-full;
     }
+    .authorText {
+      @apply text-indigo-500;
+    }
   }
   .descriptionWrapper {
     @apply mb-20;
 
     .description {
-      @apply text-16;
+      @apply text-16 whitespace-pre-wrap;
+    }
+
+    .blogImage {
+      @apply w-full my-2;
     }
   }
+
+  .line {
+    @apply max-w-lg mx-auto my-20 border border-indigo-500;
+  }
+
   .comment {
-    @apply mx-28 px-20;
+    @apply opacity-100;
   }
 }

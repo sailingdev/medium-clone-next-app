@@ -1,37 +1,23 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import classNames from "classnames";
+import { Disclosure, Menu, Transition } from "@headlessui/react";
 
-import logoImage from "../../assets/image/logo.png";
+import NavLink from "../../components/_ui/NavLink/NavLink";
 import SearchBox from "../../components/_ui/SearchBox";
-import styles from "./styles.module.scss";
 import avatar from "../../assets/image/testimonial-2.jpg";
+import logoImage from "../../assets/image/logo.png";
+import styles from "./styles.module.scss";
 
 const navLinkItem = [
   {
-    label: "Home",
-    link: "/",
-  },
-  {
-    label: "Blog",
-    link: "/",
-  },
-  {
-    label: "About",
-    link: "/about",
-  },
-  {
-    label: "Comments",
-    link: "/",
+    label: "About Us",
+    link: "/about-us",
   },
 ];
 
 const Header: React.FC = () => {
-  const [active, setActive] = useState(0);
-
   return (
     <Disclosure as="nav" className={styles.wrapper}>
       {({ open }) => (
@@ -42,19 +28,16 @@ const Header: React.FC = () => {
                 <Link href="/" className={styles.imageWrapper}>
                   <Image className={styles.image} src={logoImage} alt="Your Company" />
                 </Link>
-                <div className={styles.linkTitleWrapper}>
-                  {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
+                <div className={styles.linkItems}>
                   {navLinkItem.map((navItem, index) => (
-                    <Link
-                      onClick={() => setActive(index)}
+                    <NavLink
                       href={navItem.link}
                       key={index}
-                      className={classNames(styles.titleWrapper, {
-                        [styles.active]: index === active,
-                      })}
+                      className={styles.link}
+                      activeClassName={styles.active}
                     >
                       {navItem.label}
-                    </Link>
+                    </NavLink>
                   ))}
                 </div>
               </div>

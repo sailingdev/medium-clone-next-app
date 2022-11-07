@@ -6,6 +6,7 @@
 
     .navbarWrapper {
       @apply flex justify-between w-full h-75;
+
       .linkWrapper {
         @apply flex px-2 desktop:px-0;
 
@@ -13,20 +14,24 @@
           @apply flex items-center flex-shrink-0;
 
           .image {
-            @apply block w-auto h-70;
+            @apply block w-auto phone:h-70 h-50;
           }
         }
-        .linkTitleWrapper {
+
+        .linkItems {
           @apply hidden desktop:ml-6 desktop:flex desktop:space-x-8;
 
-          .titleWrapper {
-            @apply inline-flex items-center border-b-2 px-1 pt-1 text-16 font-medium text-gray-900;
-            // &.active {
-            //   @apply border-indigo-500;
-            // }
+          .link {
+            @apply inline-flex border-transparent border-b-2 items-center px-1 pt-1 text-16 font-medium text-gray-900 transition-colors;
+
+            &.active,
+            &:hover {
+              @apply border-indigo-500;
+            }
           }
         }
       }
+
       .searchWrapper {
         @apply flex items-center justify-center flex-1 px-2 desktop:ml-6 desktop:justify-end;
       }
@@ -52,6 +57,7 @@
             @apply w-6 h-6;
           }
         }
+
         .menuIconWrapper {
           @apply relative flex-shrink-0 ml-4;
 
@@ -62,6 +68,7 @@
               @apply w-8 h-8 rounded-full;
             }
           }
+
           .menuItemWrapper {
             @apply absolute right-0 z-10 w-48 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none;
 
