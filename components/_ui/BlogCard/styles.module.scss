@@ -18,11 +18,11 @@
     .textWrapper {
       @apply absolute bottom-0 w-full text-white opacity-80 transition-all;
 
-      .title {
+      .category {
         @apply text-20 bg-blue-500 px-2 py-1 font-bold w-fit rounded-tr-xl;
       }
 
-      .description {
+      .title {
         @apply text-16 font-semibold bg-purple-600 px-2 py-1;
       }
     }

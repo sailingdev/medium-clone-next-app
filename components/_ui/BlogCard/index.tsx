@@ -9,18 +9,18 @@ type Props = {
   id: string;
   className?: string;
   image: string | StaticImageData;
+  category?: string;
   title?: string;
-  description?: string;
 };
 
-const BlogCard: React.FC<Props> = ({ className = "", image, title, description, id }) => {
+const BlogCard: React.FC<Props> = ({ className = "", image, category, title, id }) => {
   return (
     <Link className={classNames(styles.wrapper, className)} href={`/blog/${id}`}>
       <div className={styles.imageWrapper}>
         <Image src={image} alt="image" className={styles.image} />
         <div className={styles.textWrapper}>
-          {!!description && <p className={styles.title}>{title}</p>}
-          <p className={styles.description}>{description}</p>
+          {!!category && <p className={styles.category}>{category}</p>}
+          <p className={styles.title}>{title}</p>
         </div>
       </div>
     </Link>

@@ -1,0 +1,43 @@
+.wrapper {
+  @apply flex items-start space-x-4;
+
+  .imageWrapper {
+    @apply flex-shrink-0;
+
+    .image {
+      @apply w-40 h-40 rounded-full;
+    }
+  }
+
+  .formWrapper {
+    @apply relative flex-1 min-w-0;
+
+    .comment {
+      @apply overflow-hidden border border-gray-300 rounded-lg shadow-sm focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500;
+
+      .label {
+        @apply sr-only;
+      }
+
+      .textarea {
+        @apply block w-full py-3 border-0 resize-none focus:ring-0 phone:text-16;
+      }
+
+      .spacer {
+        @apply py-2;
+
+        .match {
+          @apply py-px h-9;
+        }
+      }
+    }
+
+    .buttonWrapper {
+      @apply absolute bottom-0 right-0 flex justify-between flex-shrink-0 py-2 pl-3 pr-2;
+
+      .button {
+        @apply inline-flex items-center px-4 py-2 text-16 font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2;
+      }
+    }
+  }
+}

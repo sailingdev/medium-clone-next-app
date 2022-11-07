@@ -3,11 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import classNames from "classnames";
 
 import logoImage from "../../assets/image/logo.png";
 import SearchBox from "../../components/_ui/SearchBox";
 import styles from "./styles.module.scss";
-import classNames from "classnames";
+import avatar from "../../assets/image/testimonial-2.jpg";
 
 const navLinkItem = [
   {
@@ -15,12 +16,12 @@ const navLinkItem = [
     link: "/",
   },
   {
-    label: "Team",
-    link: "/about",
+    label: "Blog",
+    link: "/",
   },
   {
-    label: "Blogs",
-    link: "/detail",
+    label: "About",
+    link: "/about",
   },
   {
     label: "Comments",
@@ -38,9 +39,9 @@ const Header: React.FC = () => {
           <div className={styles.navbarDesktopWrapper}>
             <div className={styles.navbarWrapper}>
               <div className={styles.linkWrapper}>
-                <div className={styles.imageWrapper}>
+                <Link href="/" className={styles.imageWrapper}>
                   <Image className={styles.image} src={logoImage} alt="Your Company" />
-                </div>
+                </Link>
                 <div className={styles.linkTitleWrapper}>
                   {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
                   {navLinkItem.map((navItem, index) => (
@@ -86,7 +87,7 @@ const Header: React.FC = () => {
                         width={50}
                         height={50}
                         className={styles.profileImage}
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                        src={avatar}
                         alt=""
                       />
                     </Menu.Button>
@@ -141,7 +142,7 @@ const Header: React.FC = () => {
                     width={50}
                     height={50}
                     className={styles.image}
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                    src={avatar}
                     alt=""
                   />
                 </div>

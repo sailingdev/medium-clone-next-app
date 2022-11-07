@@ -1,9 +1,9 @@
 import React from "react";
 
-import DetailPage from "../../components/_pages/Detail";
+import BlogPage from "../../components/_pages/Blog";
 import MainLayout from "../../layout/MainLayout";
 
-const Blog = () => <DetailPage />;
+const Blog = () => <BlogPage />;
 
 Blog.getLayout = function getLayout(page: React.ReactElement) {
   return (
