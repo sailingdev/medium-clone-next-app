@@ -2,34 +2,37 @@
   @apply bg-white z-50 sticky top-0 shadow-lg;
 
   .navbarDesktopWrapper {
-    @apply container mx-auto;
+    @apply container mx-auto px-4;
 
     .navbarWrapper {
-      @apply flex justify-between w-full h-16;
+      @apply flex justify-between w-full h-75;
       .linkWrapper {
-        @apply flex px-2 lg:px-0;
+        @apply flex px-2 desktop:px-0;
 
         .imageWrapper {
           @apply flex items-center flex-shrink-0;
 
           .image {
-            @apply block w-auto h-8;
+            @apply block w-auto h-70;
           }
         }
         .linkTitleWrapper {
-          @apply hidden lg:ml-6 lg:flex lg:space-x-8;
+          @apply hidden desktop:ml-6 desktop:flex desktop:space-x-8;
 
           .titleWrapper {
-            @apply inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-900 border-b-2 border-transparent;
+            @apply inline-flex items-center border-b-2 px-1 pt-1 text-16 font-medium text-gray-900;
+            // &.active {
+            //   @apply border-indigo-500;
+            // }
           }
         }
       }
       .searchWrapper {
-        @apply flex items-center justify-center flex-1 px-2 lg:ml-6 lg:justify-end;
+        @apply flex items-center justify-center flex-1 px-2 desktop:ml-6 desktop:justify-end;
       }
 
       .hamburger {
-        @apply flex items-center lg:hidden;
+        @apply flex items-center desktop:hidden;
 
         .menuButton {
           @apply inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500;
@@ -40,7 +43,7 @@
         }
       }
       .toolWrapper {
-        @apply hidden lg:ml-4 lg:flex lg:items-center;
+        @apply hidden desktop:ml-4 desktop:flex desktop:items-center;
 
         .toolButtonWrapper {
           @apply flex-shrink-0 p-1 text-gray-400 bg-white rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2;
@@ -53,7 +56,7 @@
           @apply relative flex-shrink-0 ml-4;
 
           .menuButtonWrapper {
-            @apply flex text-sm bg-white rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2;
+            @apply flex text-14 bg-white rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2;
 
             .profileImage {
               @apply w-8 h-8 rounded-full;
@@ -63,7 +66,7 @@
             @apply absolute right-0 z-10 w-48 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none;
 
             .menuItem {
-              @apply block px-4 py-2 text-sm text-gray-700;
+              @apply block px-4 py-2 text-14 text-gray-700;
 
               &:hover,
               .active {
@@ -77,13 +80,13 @@
   }
 
   .navbarMobileWrapper {
-    @apply lg:hidden z-50 bg-white absolute w-full;
+    @apply desktop:hidden z-50 bg-white absolute w-full;
 
     .linkWrapper {
       @apply pt-2 pb-3 space-y-1;
 
       .linkItem {
-        @apply block py-2 pl-3 pr-4 text-base font-medium text-indigo-700 border-l-4 border-indigo-500 bg-indigo-50;
+        @apply block py-2 pl-3 pr-4 text-16 font-medium text-indigo-700 border-l-4 border-indigo-500 bg-indigo-50;
       }
     }
     .profileWrapper {
@@ -96,17 +99,17 @@
           @apply flex-shrink-0;
 
           .image {
-            @apply w-10 h-10 rounded-full;
+            @apply w-40 h-40 rounded-full;
           }
         }
         .textWrapper {
           @apply ml-3;
 
           .title {
-            @apply text-base font-medium text-gray-800;
+            @apply text-16 font-medium text-gray-800;
           }
           .description {
-            @apply text-sm font-medium text-gray-500;
+            @apply text-14 font-medium text-gray-500;
           }
         }
         .toolButton {
@@ -121,7 +124,7 @@
         @apply mt-3 space-y-1;
 
         .button {
-          @apply block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800;
+          @apply block px-4 py-2 text-16 font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800;
         }
       }
     }

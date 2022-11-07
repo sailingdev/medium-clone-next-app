@@ -1,15 +1,15 @@
 .wrapper {
-  @apply relative w-full max-w-lg lg:max-w-xs;
+  @apply relative w-full max-w-lg desktop:max-w-xs;
 
   .iconWrapper {
-    @apply absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none;
+    @apply absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none;
 
     .icon {
-      @apply w-5 h-5 text-gray-400;
+      @apply w-20 h-20 text-gray-400;
     }
   }
 
   .inputWrapper {
-    @apply block w-full py-2 pl-10 pr-3 leading-5 placeholder-gray-500 bg-white border border-gray-300 rounded-md focus:border-indigo-500 focus:placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm text-black;
+    @apply block w-full py-2 pl-40 pr-3 leading-11 placeholder-gray-500 bg-white border border-gray-300 rounded-md focus:border-indigo-500 focus:placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-indigo-500 phone:text-14 text-black;
   }
 }

@@ -1,0 +1,22 @@
+.image {
+  @apply object-cover w-full h-350;
+}
+.detailWrapper {
+  @apply max-w-screen-tablet mx-auto p-20;
+
+  .title {
+    @apply text-black text-30 font-normal mt-30;
+  }
+
+  .description {
+    @apply text-gray-700 text-20 font-light mt-10;
+  }
+
+  .authorWrapper {
+    @apply flex mt-5;
+
+    .avatar {
+      @apply h-40 w-40 rounded-full;
+    }
+  }
+}

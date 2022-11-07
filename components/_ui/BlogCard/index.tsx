@@ -3,25 +3,27 @@ import Image, { StaticImageData } from "next/image";
 import classNames from "classnames";
 
 import styles from "./styles.module.scss";
+import Link from "next/link";
 
 type Props = {
+  id: string;
   className?: string;
   image: string | StaticImageData;
   title?: string;
-  category?: string;
+  description?: string;
 };
 
-const BlogCard: React.FC<Props> = ({ className = "", image, title, category }) => {
+const BlogCard: React.FC<Props> = ({ className = "", image, title, description, id }) => {
   return (
-    <div className={classNames(styles.wrapper, className)}>
+    <Link className={classNames(styles.wrapper, className)} href={`/blog/${id}`}>
       <div className={styles.imageWrapper}>
         <Image src={image} alt="image" className={styles.image} />
         <div className={styles.textWrapper}>
-          {!!category && <p className={styles.category}>{category}</p>}
-          <p className={styles.title}>{title}</p>
+          {!!description && <p className={styles.title}>{title}</p>}
+          <p className={styles.description}>{description}</p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

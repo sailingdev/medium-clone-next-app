@@ -2,10 +2,10 @@
   @apply border-t border-gray-200 bg-white;
 
   .textWrapper {
-    @apply container pt-8 mx-auto md:flex md:items-center md:justify-between;
+    @apply container pt-8 px-4 mx-auto tablet:flex tablet:items-center tablet:justify-between;
 
     .text {
-      @apply px-4 mb-8 text-base text-gray-500 md:order-1 md:mt-0;
+      @apply mb-8 text-16 text-gray-500 tablet:order-1 tablet:mt-0;
     }
   }
 }

@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
@@ -7,19 +7,20 @@ import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import logoImage from "../../assets/image/logo.png";
 import SearchBox from "../../components/_ui/SearchBox";
 import styles from "./styles.module.scss";
+import classNames from "classnames";
 
 const navLinkItem = [
   {
-    label: "Dashboard",
+    label: "Home",
     link: "/",
   },
   {
     label: "Team",
-    link: "/",
+    link: "/about",
   },
   {
     label: "Blogs",
-    link: "/",
+    link: "/detail",
   },
   {
     label: "Comments",
@@ -28,6 +29,8 @@ const navLinkItem = [
 ];
 
 const Header: React.FC = () => {
+  const [active, setActive] = useState(0);
+
   return (
     <Disclosure as="nav" className={styles.wrapper}>
       {({ open }) => (
@@ -41,7 +44,14 @@ const Header: React.FC = () => {
                 <div className={styles.linkTitleWrapper}>
                   {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
                   {navLinkItem.map((navItem, index) => (
-                    <Link href={navItem.link} key={index} className={styles.titleWrapper}>
+                    <Link
+                      onClick={() => setActive(index)}
+                      href={navItem.link}
+                      key={index}
+                      className={classNames(styles.titleWrapper, {
+                        [styles.active]: index === active,
+                      })}
+                    >
                       {navItem.label}
                     </Link>
                   ))}
@@ -136,7 +146,7 @@ const Header: React.FC = () => {
                   />
                 </div>
                 <div className={styles.textWrapper}>
-                  <div className={styles.title}>Tom Cook</div>
+                  <div className={styles.title}>Denis</div>
                   <div className={styles.description}>tom@example.com</div>
                 </div>
                 <button type="button" className={styles.toolButton}>

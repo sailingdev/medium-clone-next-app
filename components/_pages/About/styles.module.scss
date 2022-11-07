@@ -1,0 +1,7 @@
+.wrapper {
+  @apply h-20 w-20 text-secondary bg-primary;
+}
+
+.open {
+  @apply rotate-180;
+}
