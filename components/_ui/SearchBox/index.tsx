@@ -1,5 +1,6 @@
 import React from "react";
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
+
 import styles from "./styles.module.scss";
 
 const SearchBox: React.FC = () => {

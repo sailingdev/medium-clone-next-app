@@ -2,9 +2,9 @@ import Image from "next/image";
 import React from "react";
 import { useRouter } from "next/router";
 
+import AddComment from "../../_ui/AddComment";
 import styles from "./styles.module.scss";
 import { blogList } from "../Home";
-import AddComment from "../../_ui/AddComment";
 
 const BlogPage: React.FC = () => {
   const router = useRouter();

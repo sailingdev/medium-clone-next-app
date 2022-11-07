@@ -1,7 +1,7 @@
-import { useRouter } from "next/router";
 import Link, { LinkProps } from "next/link";
-import { PropsWithChildren } from "react";
 import classNames from "classnames";
+import { PropsWithChildren } from "react";
+import { useRouter } from "next/router";
 
 type Props = PropsWithChildren<LinkProps> & {
   exact?: boolean;
