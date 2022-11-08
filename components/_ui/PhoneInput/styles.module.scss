@@ -1,0 +1,15 @@
+.inputStyle {
+  @apply appearance-none rounded-md block w-full py-2 text-16 border border-gray-300 placeholder-gray-400 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 bg-white text-black h-auto #{!important};
+}
+
+.countryPicker {
+  @apply appearance-none focus:outline-none border-none m-1  bg-white #{!important};
+}
+
+.error {
+  @apply block text-16 font-medium text-gray-700 text-red-500;
+}
+
+.label {
+  @apply block text-16 font-medium text-gray-700;
+}

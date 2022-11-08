@@ -91,8 +91,8 @@ const Header: React.FC = () => {
                         </Link>
                       </Menu.Item>
                       <Menu.Item>
-                        <Link href="#" className={styles.menuItem}>
-                          Settings
+                        <Link href="/auth/register" className={styles.menuItem}>
+                          Register
                         </Link>
                       </Menu.Item>
                       <Menu.Item>
@@ -144,12 +144,12 @@ const Header: React.FC = () => {
                     Your Profile
                   </Disclosure.Button>
                 </Link>
-                <Link href="/">
+                <Link href="/auth/register">
                   <Disclosure.Button as="div" className={styles.button}>
-                    Settings
+                    Register
                   </Disclosure.Button>
                 </Link>
-                <Link href="/">
+                <Link href="/auth/login">
                   <Disclosure.Button as="div" className={styles.button}>
                     Login
                   </Disclosure.Button>

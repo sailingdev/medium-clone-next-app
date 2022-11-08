@@ -4,4 +4,8 @@
   &.primary {
     @apply bg-indigo-600 text-white  hover:bg-indigo-700  focus:ring-indigo-500;
   }
+
+  &.secondary {
+    @apply bg-gray-500 text-white  hover:bg-gray-600  focus:ring-gray-500;
+  }
 }

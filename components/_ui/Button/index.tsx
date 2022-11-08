@@ -1,5 +1,6 @@
-import classNames from "classnames";
 import React, { ReactNode } from "react";
+import ReactLoading from "react-loading";
+import classNames from "classnames";
 
 import styles from "./styles.module.scss";
 
@@ -30,7 +31,11 @@ const Button: React.FC<Props> = ({
         disabled={disabled}
         className={classNames(className, styles.buttonStyle, styles[buttonStyle])}
       >
-        {children}
+        {isPending ? (
+          <ReactLoading type="bars" width={24} height={24} color="white" />
+        ) : (
+          children
+        )}
       </button>
     </div>
   );

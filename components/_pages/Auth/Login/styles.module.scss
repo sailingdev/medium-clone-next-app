@@ -1,0 +1,47 @@
+.wrapper {
+  @apply bg-white min-h-screen flex justify-center items-center;
+
+  .mainWrapper {
+    @apply flex min-h-full flex-col justify-center py-12 phone:px-6 desktop:px-8;
+
+    .logoWrapper {
+      @apply phone:mx-auto phone:w-full phone:max-w-md;
+    }
+
+    .logoText {
+      @apply mt-6 text-center text-30 font-bold text-gray-900;
+    }
+  }
+
+  .loginWrapper {
+    @apply mt-10 phone:mx-auto phone:w-full phone:max-w-md;
+
+    .formWrapper {
+      @apply bg-white py-8 px-4 shadow phone:rounded-lg phone:px-10;
+
+      .form {
+        @apply space-y-6;
+
+        .refWrapper {
+          @apply flex items-center justify-between;
+
+          .checkboxWrapper {
+            @apply flex items-center;
+          }
+
+          .link {
+            @apply font-medium text-indigo-600 hover:text-indigo-500 text-16;
+          }
+        }
+
+        .linkWrapper {
+          @apply text-right;
+
+          .link {
+            @apply font-medium text-indigo-600 hover:text-indigo-500 text-16;
+          }
+        }
+      }
+    }
+  }
+}
