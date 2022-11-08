@@ -2,7 +2,7 @@
   @apply bg-white min-h-screen flex justify-center items-center;
 
   .mainWrapper {
-    @apply flex min-h-full flex-col justify-center py-12 phone:px-6 desktop:px-8;
+    @apply flex min-h-full flex-col justify-center py-12 px-15 w-full;
 
     .logoWrapper {
       @apply phone:mx-auto phone:w-full phone:max-w-md;
