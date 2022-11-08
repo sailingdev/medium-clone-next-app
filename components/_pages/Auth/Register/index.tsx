@@ -35,65 +35,49 @@ const RegisterPage: React.FC = () => {
   };
 
   return (
-    <section className={styles.wrapper}>
-      <div>
-        <div className={styles.mainWrapper}>
-          <div className={styles.logoWrapper}>
-            <Link href="/">
-              <Image src={logoImage} alt="no Image" className={styles.image} />
-            </Link>
-            <h2 className={styles.logoText}>Register in to your account</h2>
-          </div>
-          <div className={styles.registerWrapper}>
-            <div className={styles.formWrapper}>
-              <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-                <div className={styles.nameSet}>
-                  <Input
-                    name="firstName"
-                    type="text"
-                    label="FirstName*"
-                    register={register("firstName")}
-                    error={errors.firstName}
-                  />
-                  <Input
-                    name="lastName"
-                    type="text"
-                    label="LastName*"
-                    register={register("lastName")}
-                    error={errors.lastName}
-                  />
-                </div>
-                <Input
-                  name="email"
-                  type="email"
-                  label="Email address*"
-                  register={register("email")}
-                  error={errors.email}
-                />
-                <PhoneInputField control={control} name="phone" label="Phone number" />
-                <Input
-                  name="password"
-                  type="password"
-                  label="Password*"
-                  register={register("password")}
-                  error={errors.password}
-                />
-                <Input
-                  name="passwordConfirm"
-                  type="password"
-                  label="Password Confirm*"
-                  register={register("passwordConfirm")}
-                  error={errors.passwordConfirm}
-                />
-                <Button type="submit" isPending={isLogging} disabled={isLogging}>
-                  Register
-                </Button>
-              </form>
-            </div>
-          </div>
-        </div>
+    <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+      <div className={styles.nameSet}>
+        <Input
+          name="firstName"
+          type="text"
+          label="FirstName*"
+          register={register("firstName")}
+          error={errors.firstName}
+        />
+        <Input
+          name="lastName"
+          type="text"
+          label="LastName*"
+          register={register("lastName")}
+          error={errors.lastName}
+        />
       </div>
-    </section>
+      <Input
+        name="email"
+        type="email"
+        label="Email address*"
+        register={register("email")}
+        error={errors.email}
+      />
+      <PhoneInputField control={control} name="phone" label="Phone number" />
+      <Input
+        name="password"
+        type="password"
+        label="Password*"
+        register={register("password")}
+        error={errors.password}
+      />
+      <Input
+        name="passwordConfirm"
+        type="password"
+        label="Password Confirm*"
+        register={register("passwordConfirm")}
+        error={errors.passwordConfirm}
+      />
+      <Button type="submit" isPending={isLogging} disabled={isLogging}>
+        Register
+      </Button>
+    </form>
   );
 };
 

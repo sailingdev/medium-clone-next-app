@@ -1,34 +1,7 @@
-.wrapper {
-  @apply bg-white min-h-screen flex justify-center items-center;
+.form {
+  @apply space-y-6;
 
-  .mainWrapper {
-    @apply flex min-h-full flex-col justify-center py-12 phone:px-6 desktop:px-8;
-
-    .logoWrapper {
-      @apply phone:mx-auto phone:w-full phone:max-w-md;
-
-      .image {
-        @apply w-auto mx-auto h-70;
-      }
-      .logoText {
-        @apply mt-6 text-center text-30 font-bold text-gray-900;
-      }
-    }
-  }
-
-  .registerWrapper {
-    @apply mt-10 phone:mx-auto phone:w-full phone:max-w-md;
-
-    .formWrapper {
-      @apply bg-white py-8 px-4 shadow phone:rounded-lg phone:px-10;
-
-      .form {
-        @apply space-y-6;
-
-        .nameSet {
-          @apply grid tablet:grid-cols-2 grid-cols-1 tablet:gap-3 tablet:space-y-0 space-y-6;
-        }
-      }
-    }
+  .nameSet {
+    @apply grid tablet:grid-cols-2 grid-cols-1 tablet:gap-3 tablet:space-y-0 space-y-6;
   }
 }
