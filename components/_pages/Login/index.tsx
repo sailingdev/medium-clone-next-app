@@ -8,7 +8,7 @@ import logoImage from "../../../assets/image/logo.png";
 
 const LoginPage: React.FC = () => {
   return (
-    <section>
+    <section className={styles.wrapper}>
       <div className="flex min-h-full flex-col justify-center py-12 16:px-6 lg:px-8">
         <div className="phone:mx-auto phone:w-full phone:max-w-md">
           <Image src={logoImage} alt="no Image" className="mx-auto h-70 w-auto" />
