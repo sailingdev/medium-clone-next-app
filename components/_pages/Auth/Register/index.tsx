@@ -74,9 +74,16 @@ const RegisterPage: React.FC = () => {
         register={register("passwordConfirm")}
         error={errors.passwordConfirm}
       />
-      <Button type="submit" isPending={isLogging} disabled={isLogging}>
-        Register
-      </Button>
+      <div className={styles.linkWrapper}>
+        <Button type="submit" isPending={isLogging} disabled={isLogging}>
+          Register
+        </Button>
+        <div>
+          <Link href="/auth/login" className={styles.link}>
+            Back to Login
+          </Link>
+        </div>
+      </div>
     </form>
   );
 };

@@ -7,17 +7,12 @@
     .checkboxWrapper {
       @apply flex items-center;
     }
-
-    .link {
-      @apply font-medium text-indigo-600 hover:text-indigo-500 text-16;
-    }
   }
 
   .linkWrapper {
-    @apply text-right;
-
-    .link {
-      @apply font-medium text-indigo-600 hover:text-indigo-500 text-16;
-    }
+    @apply text-right space-y-2;
+  }
+  .link {
+    @apply text-indigo-600 hover:text-indigo-500 text-14;
   }
 }

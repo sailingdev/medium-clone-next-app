@@ -18,7 +18,7 @@
   }
 
   .subWrapper {
-    @apply mt-10 phone:mx-auto phone:w-full phone:max-w-md;
+    @apply mt-10 phone:mx-auto phone:w-500 phone:max-w-md w-full;
 
     .formWrapper {
       @apply bg-white py-8 px-4 shadow phone:rounded-lg phone:px-10;

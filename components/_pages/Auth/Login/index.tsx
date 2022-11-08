@@ -54,18 +54,20 @@ const LoginPage: React.FC = () => {
           <div className={styles.checkboxWrapper}>
             <Checkbox label="Remember me" />
           </div>
-          <Link href="#" className={styles.link}>
+          <Link href="/auth/reset-password" className={styles.link}>
             Forgot your password?
           </Link>
         </div>
-        <Button type="submit" isPending={isLogging} disabled={isLogging}>
-          Sign in
-        </Button>
         <div className={styles.linkWrapper}>
-          <Link
-            href="/auth/register"
-            className={styles.link}
-          >{`Don't have a user account yet?`}</Link>
+          <Button type="submit" isPending={isLogging} disabled={isLogging}>
+            Sign in
+          </Button>
+          <div>
+            <Link
+              href="/auth/register"
+              className={styles.link}
+            >{`Don't have a user account yet?`}</Link>
+          </div>
         </div>
       </form>
     </section>
