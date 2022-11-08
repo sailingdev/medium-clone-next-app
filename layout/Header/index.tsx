@@ -4,7 +4,7 @@ import React, { Fragment } from "react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 
-import NavLink from "../../components/_ui/NavLink/NavLink";
+import NavLink from "../../components/_ui/NavLink";
 import SearchBox from "../../components/_ui/SearchBox";
 import avatar from "../../assets/image/testimonial-2.jpg";
 import logoImage from "../../assets/image/logo.png";
@@ -96,8 +96,8 @@ const Header: React.FC = () => {
                         </Link>
                       </Menu.Item>
                       <Menu.Item>
-                        <Link href="#" className={styles.menuItem}>
-                          Sign out
+                        <Link href="/auth/login" className={styles.menuItem}>
+                          Login
                         </Link>
                       </Menu.Item>
                     </Menu.Items>
@@ -151,7 +151,7 @@ const Header: React.FC = () => {
                 </Link>
                 <Link href="/">
                   <Disclosure.Button as="div" className={styles.button}>
-                    Sign out
+                    Login
                   </Disclosure.Button>
                 </Link>
               </div>
