@@ -33,7 +33,7 @@ const ResetPasswordPage: React.FC = () => {
     }
   };
   return (
-    <div>
+    <section>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <Input
           name="email"
@@ -55,7 +55,7 @@ const ResetPasswordPage: React.FC = () => {
           </div>
         </div>
       </form>
-    </div>
+    </section>
   );
 };
 
