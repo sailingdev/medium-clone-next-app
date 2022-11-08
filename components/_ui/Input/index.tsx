@@ -48,7 +48,7 @@ const Input: React.FC<Props> = ({
         autoComplete={autoComplete}
         required={required}
         placeholder={placeholder}
-        className={classNames(styles.inputStyle, className)}
+        className={classNames(styles.inputStyle, className, { [styles.error]: error })}
         value={value}
         readOnly={readonly}
         {...register}

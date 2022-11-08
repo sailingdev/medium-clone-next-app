@@ -4,8 +4,12 @@
 
 .inputStyle {
   @apply block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 phone:text-16;
+
+  &.error {
+    @apply block w-full appearance-none rounded-md border px-3 py-2 placeholder-gray-400 shadow-sm phone:text-16 border-red-500 text-red-500  ring-red-500;
+  }
 }
 
 .error {
-  @apply block text-16 font-medium text-gray-700 text-red-500;
+  @apply block text-12 text-red-500;
 }

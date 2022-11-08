@@ -40,7 +40,7 @@ const RegisterPage: React.FC = () => {
         <div className={styles.mainWrapper}>
           <div className={styles.logoWrapper}>
             <Link href="/">
-              <Image src={logoImage} alt="no Image" className="w-auto mx-auto h-70" />
+              <Image src={logoImage} alt="no Image" className={styles.image} />
             </Link>
             <h2 className={styles.logoText}>Register in to your account</h2>
           </div>
@@ -70,7 +70,7 @@ const RegisterPage: React.FC = () => {
                   register={register("email")}
                   error={errors.email}
                 />
-                <PhoneInputField control={control} name="phone" label="Phone number*" />
+                <PhoneInputField control={control} name="phone" label="Phone number" />
                 <Input
                   name="password"
                   type="password"
@@ -85,7 +85,6 @@ const RegisterPage: React.FC = () => {
                   register={register("passwordConfirm")}
                   error={errors.passwordConfirm}
                 />
-                try {}
                 <Button type="submit" isPending={isLogging} disabled={isLogging}>
                   Register
                 </Button>

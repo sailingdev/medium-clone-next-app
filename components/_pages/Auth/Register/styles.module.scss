@@ -6,10 +6,13 @@
 
     .logoWrapper {
       @apply phone:mx-auto phone:w-full phone:max-w-md;
-    }
 
-    .logoText {
-      @apply mt-6 text-center text-30 font-bold text-gray-900;
+      .image {
+        @apply w-auto mx-auto h-70;
+      }
+      .logoText {
+        @apply mt-6 text-center text-30 font-bold text-gray-900;
+      }
     }
   }
 
