@@ -47,6 +47,11 @@
           }
         }
       }
+
+      .loginButton {
+        @apply inline-flex border-transparent border-b-2 items-center px-1 pt-1 text-16 font-medium text-gray-900 transition-colors;
+      }
+
       .toolWrapper {
         @apply hidden desktop:ml-4 desktop:flex desktop:items-center;
 

@@ -9,6 +9,8 @@ import SearchBox from "../../components/_ui/SearchBox";
 import avatar from "../../assets/image/testimonial-2.jpg";
 import logoImage from "../../assets/image/logo.png";
 import styles from "./styles.module.scss";
+import { useAppSelector } from "../../hooks/store";
+import { authSelector } from "../../store/Auth";
 
 const navLinkItem = [
   {
@@ -18,6 +20,7 @@ const navLinkItem = [
 ];
 
 const Header: React.FC = () => {
+  const { isLoggedIn } = useAppSelector(authSelector);
   return (
     <Disclosure as="nav" className={styles.wrapper}>
       {({ open }) => (
@@ -55,55 +58,56 @@ const Header: React.FC = () => {
                   )}
                 </Disclosure.Button>
               </div>
-              <div className={styles.toolWrapper}>
-                <button type="button" className={styles.toolButtonWrapper}>
-                  <span className="sr-only">View notifications</span>
-                  <BellIcon className={styles.bellIcon} aria-hidden="true" />
-                </button>
+              {isLoggedIn ? (
+                <div className={styles.toolWrapper}>
+                  <button type="button" className={styles.toolButtonWrapper}>
+                    <span className="sr-only">View notifications</span>
+                    <BellIcon className={styles.bellIcon} aria-hidden="true" />
+                  </button>
 
-                {/* Profile dropdown */}
-                <Menu as="div" className={styles.menuIconWrapper}>
-                  <div>
-                    <Menu.Button className={styles.menuButtonWrapper}>
-                      <span className="sr-only">Open user menu</span>
-                      <Image
-                        width={50}
-                        height={50}
-                        className={styles.profileImage}
-                        src={avatar}
-                        alt=""
-                      />
-                    </Menu.Button>
-                  </div>
-                  <Transition
-                    as={Fragment}
-                    enter="transition ease-out duration-100"
-                    enterFrom="transform opacity-0 scale-95"
-                    enterTo="transform opacity-100 scale-100"
-                    leave="transition ease-in duration-75"
-                    leaveFrom="transform opacity-100 scale-100"
-                    leaveTo="transform opacity-0 scale-95"
-                  >
-                    <Menu.Items className={styles.menuItemWrapper}>
-                      <Menu.Item>
-                        <Link href="/about" className={styles.menuItem}>
-                          Your Profile
-                        </Link>
-                      </Menu.Item>
-                      <Menu.Item>
-                        <Link href="/auth/register" className={styles.menuItem}>
-                          Register
-                        </Link>
-                      </Menu.Item>
-                      <Menu.Item>
-                        <Link href="/auth/login" className={styles.menuItem}>
-                          Login
-                        </Link>
-                      </Menu.Item>
-                    </Menu.Items>
-                  </Transition>
-                </Menu>
-              </div>
+                  {/* Profile dropdown */}
+                  <Menu as="div" className={styles.menuIconWrapper}>
+                    <div>
+                      <Menu.Button className={styles.menuButtonWrapper}>
+                        <span className="sr-only">Open user menu</span>
+                        <Image
+                          width={50}
+                          height={50}
+                          className={styles.profileImage}
+                          src={avatar}
+                          alt=""
+                        />
+                      </Menu.Button>
+                    </div>
+                    <Transition
+                      as={Fragment}
+                      enter="transition ease-out duration-100"
+                      enterFrom="transform opacity-0 scale-95"
+                      enterTo="transform opacity-100 scale-100"
+                      leave="transition ease-in duration-75"
+                      leaveFrom="transform opacity-100 scale-100"
+                      leaveTo="transform opacity-0 scale-95"
+                    >
+                      <Menu.Items className={styles.menuItemWrapper}>
+                        <Menu.Item>
+                          <Link href="/about" className={styles.menuItem}>
+                            Your Profile
+                          </Link>
+                        </Menu.Item>
+                        <Menu.Item>
+                          <Link href="/" className={styles.menuItem}>
+                            Logout
+                          </Link>
+                        </Menu.Item>
+                      </Menu.Items>
+                    </Transition>
+                  </Menu>
+                </div>
+              ) : (
+                <Link href="/auth/login" className={styles.loginButton}>
+                  Log In
+                </Link>
+              )}
             </div>
           </div>
 
@@ -118,44 +122,41 @@ const Header: React.FC = () => {
                 </Link>
               ))}
             </div>
-            <div className={styles.profileWrapper}>
-              <div className={styles.toolWrapper}>
-                <div className={styles.imageWrapper}>
-                  <Image
-                    width={50}
-                    height={50}
-                    className={styles.image}
-                    src={avatar}
-                    alt=""
-                  />
+            {isLoggedIn && (
+              <div className={styles.profileWrapper}>
+                <div className={styles.toolWrapper}>
+                  <div className={styles.imageWrapper}>
+                    <Image
+                      width={50}
+                      height={50}
+                      className={styles.image}
+                      src={avatar}
+                      alt=""
+                    />
+                  </div>
+                  <div className={styles.textWrapper}>
+                    <div className={styles.title}>Denis</div>
+                    <div className={styles.description}>tom@example.com</div>
+                  </div>
+                  <button type="button" className={styles.toolButton}>
+                    <span className="sr-only">View notifications</span>
+                    <BellIcon className={styles.bellIcon} aria-hidden="true" />
+                  </button>
                 </div>
-                <div className={styles.textWrapper}>
-                  <div className={styles.title}>Denis</div>
-                  <div className={styles.description}>tom@example.com</div>
+                <div className={styles.buttonWrapper}>
+                  <Link href="/">
+                    <Disclosure.Button as="div" className={styles.button}>
+                      Your Profile
+                    </Disclosure.Button>
+                  </Link>
+                  <Link href="/">
+                    <Disclosure.Button as="div" className={styles.button}>
+                      Logout
+                    </Disclosure.Button>
+                  </Link>
                 </div>
-                <button type="button" className={styles.toolButton}>
-                  <span className="sr-only">View notifications</span>
-                  <BellIcon className={styles.bellIcon} aria-hidden="true" />
-                </button>
               </div>
-              <div className={styles.buttonWrapper}>
-                <Link href="/">
-                  <Disclosure.Button as="div" className={styles.button}>
-                    Your Profile
-                  </Disclosure.Button>
-                </Link>
-                <Link href="/auth/register">
-                  <Disclosure.Button as="div" className={styles.button}>
-                    Register
-                  </Disclosure.Button>
-                </Link>
-                <Link href="/auth/login">
-                  <Disclosure.Button as="div" className={styles.button}>
-                    Login
-                  </Disclosure.Button>
-                </Link>
-              </div>
-            </div>
+            )}
           </Disclosure.Panel>
         </>
       )}

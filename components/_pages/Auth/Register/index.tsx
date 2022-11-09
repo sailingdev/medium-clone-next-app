@@ -1,18 +1,19 @@
-import Image from "next/image";
-import Link from "next/link";
 import React, { useState } from "react";
-import axios from "axios";
+import Link from "next/link";
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/router";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import Button from "../../../_ui/Button";
 import Input from "../../../_ui/Input";
 import PhoneInputField from "../../../_ui/PhoneInput";
-import logoImage from "../../../../assets/image/logo.png";
 import styles from "./styles.module.scss";
 import { RegisterSchema } from "../../../../utils/schema/registerSchema";
+import { registerUser } from "../../../../utils/functions/registerUser";
 
 const RegisterPage: React.FC = () => {
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -20,18 +21,19 @@ const RegisterPage: React.FC = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(RegisterSchema) });
 
-  const [isLogging, setIsLogging] = useState(false);
+  const [isPending, setIsPending] = useState<boolean>(false);
+  const [error, setError] = useState<String>();
 
   const onSubmit = async (data: any) => {
-    console.log(data);
-    setIsLogging(true);
+    setIsPending(true);
+    setError(undefined);
     try {
-      const res = await axios.post(`${process.env.NEXT_APP_API_URL}/auth/register`, data);
-      setIsLogging(false);
+      await registerUser(data);
+      router.push("/auth/login");
     } catch (error: any) {
-      console.log(error);
-      setIsLogging(false);
+      setError(error.message);
     }
+    setIsPending(false);
   };
 
   return (
@@ -39,17 +41,17 @@ const RegisterPage: React.FC = () => {
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.nameSet}>
           <Input
-            name="firstName"
+            name="firstname"
             type="text"
             label="FirstName*"
-            register={register("firstName")}
+            register={register("firstname")}
             error={errors.firstName}
           />
           <Input
-            name="lastName"
+            name="lastname"
             type="text"
             label="LastName*"
-            register={register("lastName")}
+            register={register("lastname")}
             error={errors.lastName}
           />
         </div>
@@ -76,7 +78,8 @@ const RegisterPage: React.FC = () => {
           error={errors.passwordConfirm}
         />
         <div className={styles.linkWrapper}>
-          <Button type="submit" isPending={isLogging} disabled={isLogging}>
+          {!!error && <p className={styles.error}>{error}</p>}
+          <Button type="submit" isPending={isPending} disabled={isPending}>
             Register
           </Button>
           <div>

@@ -19,7 +19,6 @@ const ResetPasswordPage: React.FC = () => {
   const [isLogging, setIsLogging] = useState(false);
 
   const onSubmit = async (data: any) => {
-    console.log(data);
     setIsLogging(true);
     try {
       const res = await axios.post(
@@ -29,7 +28,6 @@ const ResetPasswordPage: React.FC = () => {
       setIsLogging(false);
     } catch (error: any) {
       setIsLogging(false);
-      // console.log(error);
     }
   };
   return (

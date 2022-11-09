@@ -1,4 +1,5 @@
 import React from "react";
+import { ToastContainer } from "react-toast";
 
 import Footer from "../Footer";
 import Header from "../Header";
@@ -23,6 +24,7 @@ const MainLayout: React.FC<Props> = ({
     <>
       <PageMeta title={title} description={description} keywords={keywords} url={url} />
 
+      <ToastContainer delay={6000} position="top-left" />
       <Header />
       <div className="text-black bg-white">{children}</div>
       <Footer />

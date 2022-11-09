@@ -16,3 +16,7 @@
     @apply text-indigo-600 hover:text-indigo-500 text-14;
   }
 }
+
+.error {
+  @apply block text-12 text-red-500 text-left;
+}

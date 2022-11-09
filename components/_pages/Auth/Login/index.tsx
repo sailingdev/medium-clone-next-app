@@ -1,6 +1,5 @@
+import React from "react";
 import Link from "next/link";
-import React, { useState } from "react";
-import axios from "axios";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
@@ -9,26 +8,21 @@ import Checkbox from "../../../_ui/Checkbox";
 import Input from "../../../_ui/Input";
 import styles from "./styles.module.scss";
 import { LoginSchema } from "../../../../utils/schema/loginSchema";
+import { authSelector, loginAction } from "../../../../store/Auth";
+import { useAppDispatch, useAppSelector } from "../../../../hooks/store";
 
 const LoginPage: React.FC = () => {
+  const dispatch = useAppDispatch();
+  const { isPending, error } = useAppSelector(authSelector);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: yupResolver(LoginSchema) });
 
-  const [isLogging, setIsLogging] = useState(false);
-
   const onSubmit = async (data: any) => {
-    console.log(data);
-    setIsLogging(true);
-    try {
-      const res = await axios.post(`${process.env.NEXT_APP_API_URL}/auth/login`, data);
-      setIsLogging(false);
-    } catch (error: any) {
-      setIsLogging(false);
-      // console.log(error);
-    }
+    dispatch(loginAction(data));
   };
 
   return (
@@ -59,7 +53,8 @@ const LoginPage: React.FC = () => {
           </Link>
         </div>
         <div className={styles.linkWrapper}>
-          <Button type="submit" isPending={isLogging} disabled={isLogging}>
+          {!!error && <p className={styles.error}>{error}</p>}
+          <Button type="submit" isPending={isPending} disabled={isPending}>
             Sign in
           </Button>
           <div>

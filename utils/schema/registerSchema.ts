@@ -14,7 +14,7 @@ export const RegisterSchema = yup
     passwordConfirm: yup
       .string()
       .oneOf([yup.ref("password")], "Password is not matched."),
-    firstName: yup.string().required("FirstName is a required field"),
-    lastName: yup.string().required("LastName is a required field"),
+    firstname: yup.string().required("FirstName is a required field"),
+    lastname: yup.string().required("LastName is a required field"),
   })
   .required();
