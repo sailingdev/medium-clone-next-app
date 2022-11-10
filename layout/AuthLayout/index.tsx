@@ -10,18 +10,18 @@ import styles from "./styles.module.scss";
 
 type Props = {
   children: React.ReactNode;
-  AuthTitle?: string;
+  authTitle?: string;
 };
 
-const LoginPage: React.FC<Props> = ({ children, AuthTitle }) => {
-  const { isLoggedIn } = useSelector(authSelector);
+const LoginPage: React.FC<Props> = ({ children, authTitle }) => {
+  const { userData } = useSelector(authSelector);
   const router = useRouter();
 
   useEffect(() => {
-    if (isLoggedIn) {
+    if (userData) {
       router.replace("/");
     }
-  }, [isLoggedIn]);
+  }, [userData]);
 
   return (
     <>
@@ -31,7 +31,7 @@ const LoginPage: React.FC<Props> = ({ children, AuthTitle }) => {
             <Link href="/">
               <Image src={logoImage} alt="no Image" className={styles.image} />
             </Link>
-            <h2 className={styles.logoText}>{AuthTitle}</h2>
+            <h2 className={styles.logoText}>{authTitle}</h2>
           </div>
           <div className={styles.subWrapper}>
             <div className={styles.formWrapper}>{children}</div>

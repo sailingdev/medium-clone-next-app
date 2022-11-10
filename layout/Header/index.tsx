@@ -9,8 +9,8 @@ import SearchBox from "../../components/_ui/SearchBox";
 import avatar from "../../assets/image/testimonial-2.jpg";
 import logoImage from "../../assets/image/logo.png";
 import styles from "./styles.module.scss";
-import { useAppSelector } from "../../hooks/store";
-import { authSelector } from "../../store/Auth";
+import { authSelector, logout } from "../../store/Auth";
+import { useAppDispatch, useAppSelector } from "../../hooks/store";
 
 const navLinkItem = [
   {
@@ -20,7 +20,9 @@ const navLinkItem = [
 ];
 
 const Header: React.FC = () => {
-  const { isLoggedIn } = useAppSelector(authSelector);
+  const { userData } = useAppSelector(authSelector);
+  const dispatch = useAppDispatch();
+
   return (
     <Disclosure as="nav" className={styles.wrapper}>
       {({ open }) => (
@@ -58,7 +60,7 @@ const Header: React.FC = () => {
                   )}
                 </Disclosure.Button>
               </div>
-              {isLoggedIn ? (
+              {userData ? (
                 <div className={styles.toolWrapper}>
                   <button type="button" className={styles.toolButtonWrapper}>
                     <span className="sr-only">View notifications</span>
@@ -95,9 +97,16 @@ const Header: React.FC = () => {
                           </Link>
                         </Menu.Item>
                         <Menu.Item>
-                          <Link href="/" className={styles.menuItem}>
+                          <div
+                            role="button"
+                            onClick={() => {
+                              const refreshToken = localStorage.getItem("refreshToken");
+                              dispatch(logout(refreshToken ?? ""));
+                            }}
+                            className={styles.menuItem}
+                          >
                             Logout
-                          </Link>
+                          </div>
                         </Menu.Item>
                       </Menu.Items>
                     </Transition>
@@ -122,7 +131,7 @@ const Header: React.FC = () => {
                 </Link>
               ))}
             </div>
-            {isLoggedIn && (
+            {userData && (
               <div className={styles.profileWrapper}>
                 <div className={styles.toolWrapper}>
                   <div className={styles.imageWrapper}>
@@ -149,11 +158,17 @@ const Header: React.FC = () => {
                       Your Profile
                     </Disclosure.Button>
                   </Link>
-                  <Link href="/">
-                    <Disclosure.Button as="div" className={styles.button}>
+                  <Disclosure.Button as="div" className={styles.button}>
+                    <div
+                      role="button"
+                      onClick={() => {
+                        const refreshToken = localStorage.getItem("refreshToken");
+                        dispatch(logout(refreshToken ?? ""));
+                      }}
+                    >
                       Logout
-                    </Disclosure.Button>
-                  </Link>
+                    </div>
+                  </Disclosure.Button>
                 </div>
               </div>
             )}

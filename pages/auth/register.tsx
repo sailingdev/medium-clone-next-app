@@ -5,7 +5,7 @@ import AuthLayout from "../../layout/AuthLayout";
 const Register = () => <RegisterPage />;
 
 Register.getLayout = function getLayout(page: React.ReactElement) {
-  return <AuthLayout AuthTitle="Register to your account">{page}</AuthLayout>;
+  return <AuthLayout authTitle="Register to your account">{page}</AuthLayout>;
 };
 
 export default Register;

@@ -5,7 +5,7 @@ import AuthLayout from "../../layout/AuthLayout";
 const ResetPassword = () => <ResetPasswordPage />;
 
 ResetPassword.getLayout = function getLayout(page: React.ReactElement) {
-  return <AuthLayout AuthTitle="Reset Password">{page}</AuthLayout>;
+  return <AuthLayout authTitle="Reset Password">{page}</AuthLayout>;
 };
 
 export default ResetPassword;

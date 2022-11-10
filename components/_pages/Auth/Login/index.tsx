@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/router";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import Button from "../../../_ui/Button";
@@ -8,7 +9,7 @@ import Checkbox from "../../../_ui/Checkbox";
 import Input from "../../../_ui/Input";
 import styles from "./styles.module.scss";
 import { LoginSchema } from "../../../../utils/schema/loginSchema";
-import { authSelector, loginAction } from "../../../../store/Auth";
+import { authSelector, login, RemoveError } from "../../../../store/Auth";
 import { useAppDispatch, useAppSelector } from "../../../../hooks/store";
 
 const LoginPage: React.FC = () => {
@@ -20,10 +21,15 @@ const LoginPage: React.FC = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: yupResolver(LoginSchema) });
+  const { pathname } = useRouter();
 
   const onSubmit = async (data: any) => {
-    dispatch(loginAction(data));
+    dispatch(login(data));
   };
+
+  useEffect(() => {
+    dispatch(RemoveError());
+  }, [pathname]);
 
   return (
     <section>
