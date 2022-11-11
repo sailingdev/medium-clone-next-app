@@ -1,8 +1,12 @@
 .wrapper {
-  @apply py-30;
+  @apply py-30 px-4;
+
+  .inputWrapper {
+    @apply max-w-650 mx-auto space-y-20;
+  }
 
   .editor {
-    @apply container mx-auto;
+    @apply container mx-auto mt-20;
   }
 
   .button {

@@ -4,27 +4,27 @@ import EditorJS from "@editorjs/editorjs";
 import { EDITOR_JS_TOOLS } from "../../../utils/shared/constant";
 import styles from "./styles.module.scss";
 import Button from "../Button";
+import Input from "../Input";
+import { FieldValues, useForm } from "react-hook-form";
 
 export default function BlogEditor() {
   const [editor, setEditor] = useState<EditorJS | null>();
 
-  const publishBlog = () => {
-    editor
-      ?.save()
-      .then((outputData) => {
-        console.log("Article data: ", outputData);
-      })
-      .catch((error) => {
-        console.log("Saving failed: ", error);
-      });
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = async (data: FieldValues) => {
+    try {
+      if (editor) {
+        const editorData = await editor.save();
+        data.content = JSON.stringify(editorData);
+        console.log(data);
+      }
+    } catch (error) {
+      console.error("error: ", error);
+    }
   };
 
   useEffect(() => {
-    console.log("editor: ", editor);
-  }, [editor]);
-
-  useEffect(() => {
-    console.log("effect");
     setEditor(
       new EditorJS({
         holder: "editorjs",
@@ -41,14 +41,29 @@ export default function BlogEditor() {
   }, []);
 
   return (
-    <div className={styles.wrapper}>
+    <form className={styles.wrapper} onSubmit={handleSubmit(onSubmit)}>
+      <div className={styles.inputWrapper}>
+        <Input
+          name="title"
+          type="text"
+          register={register("title")}
+          placeholder="Title"
+          required
+        />
+        <Input
+          name="title"
+          type="text"
+          register={register("description")}
+          placeholder="Description"
+        />
+      </div>
       <div id="editorjs" className={styles.editor}>
         {!!editor && (
-          <Button type="button" onClick={publishBlog} className={styles.button}>
+          <Button type="submit" className={styles.button}>
             Publish
           </Button>
         )}
       </div>
-    </div>
+    </form>
   );
 }
