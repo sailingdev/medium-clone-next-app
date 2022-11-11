@@ -12,3 +12,8 @@ interface IUserData {
   createdAt?: string;
   updatedAt?: string;
 }
+
+interface ILogin {
+  email: string;
+  password: string;
+}

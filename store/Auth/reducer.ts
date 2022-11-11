@@ -16,14 +16,6 @@ const initialState: authState = {
 
 export const authReducer = createReducer(initialState, (builder) => {
   builder
-    .addCase(logout.fulfilled, (state) => {
-      state.userData = undefined;
-      localStorage.removeItem("accessToken");
-      localStorage.removeItem("refreshToken");
-    })
-    .addCase(RemoveError, (state) => {
-      state.error = undefined;
-    })
     .addCase(login.pending, (state) => {
       state.isPending = true;
       state.isSuccess = false;
@@ -57,5 +49,13 @@ export const authReducer = createReducer(initialState, (builder) => {
       state.userData = payload.data.user;
       localStorage.setItem("accessToken", payload.data.token.accessToken);
       localStorage.setItem("refreshToken", payload.data.token.refreshToken);
+    })
+    .addCase(logout.fulfilled, (state) => {
+      state.userData = undefined;
+      localStorage.removeItem("accessToken");
+      localStorage.removeItem("refreshToken");
+    })
+    .addCase(RemoveError, (state) => {
+      state.error = undefined;
     });
 });

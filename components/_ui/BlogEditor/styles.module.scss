@@ -1,0 +1,11 @@
+.wrapper {
+  @apply py-30;
+
+  .editor {
+    @apply container mx-auto;
+  }
+
+  .button {
+    @apply mx-auto;
+  }
+}

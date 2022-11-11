@@ -1,5 +1,5 @@
 .buttonStyle {
-  @apply flex w-full justify-center rounded-md border border-transparent py-2 px-4 text-16 font-medium  drop-shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2;
+  @apply flex justify-center rounded-md border border-transparent py-2 px-4 text-16 font-medium  drop-shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2;
 
   &.primary {
     @apply bg-indigo-600 text-white  hover:bg-indigo-700  focus:ring-indigo-500;

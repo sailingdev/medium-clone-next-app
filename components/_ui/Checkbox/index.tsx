@@ -10,7 +10,7 @@ type Props = {
   checked?: boolean;
   disabled?: boolean;
   className?: string;
-  onClick?: (val: boolean) => void;
+  register?: any;
 };
 
 const Checkbox: React.FC<Props> = ({
@@ -20,11 +20,8 @@ const Checkbox: React.FC<Props> = ({
   checked,
   disabled,
   className = "",
-  onClick = () => {},
+  register = {},
 }) => {
-  const onChange = (e: any) => {
-    onClick(e.target.checked);
-  };
   return (
     <div className={styles.wrapper}>
       <div className={styles.checkboxWrapper}>
@@ -34,9 +31,9 @@ const Checkbox: React.FC<Props> = ({
           name={name}
           value={value}
           className={classNames(styles.checkbox, className)}
-          onClick={onChange}
           disabled={disabled}
           defaultChecked={checked}
+          {...register}
         />
       </div>
 

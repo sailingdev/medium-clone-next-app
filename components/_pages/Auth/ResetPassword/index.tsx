@@ -43,7 +43,7 @@ const ResetPasswordPage: React.FC = () => {
         />
 
         <div className={styles.linkWrapper}>
-          <Button type="submit" isPending={isLogging} disabled={isLogging}>
+          <Button type="submit" isPending={isLogging} disabled={isLogging} fullWidth>
             Send email
           </Button>
           <div>

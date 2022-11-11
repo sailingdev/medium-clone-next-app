@@ -21,6 +21,7 @@ const LoginPage: React.FC = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: yupResolver(LoginSchema) });
+
   const { pathname } = useRouter();
 
   const onSubmit = async (data: any) => {
@@ -52,7 +53,7 @@ const LoginPage: React.FC = () => {
         />
         <div className={styles.refWrapper}>
           <div className={styles.checkboxWrapper}>
-            <Checkbox label="Remember me" />
+            <Checkbox label="Remember me" register={register("remember")} />
           </div>
           <Link href="/auth/reset-password" className={styles.link}>
             Forgot your password?
@@ -60,7 +61,7 @@ const LoginPage: React.FC = () => {
         </div>
         <div className={styles.linkWrapper}>
           {!!error && <p className={styles.error}>{error}</p>}
-          <Button type="submit" isPending={isPending} disabled={isPending}>
+          <Button type="submit" isPending={isPending} disabled={isPending} fullWidth>
             Sign in
           </Button>
           <div>

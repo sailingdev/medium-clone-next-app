@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const RemoveError = createAction("auth/removeError");
 
-export const login = createAsyncThunk("auth/login", async (data: any) => {
+export const login = createAsyncThunk("auth/login", async (data: ILogin) => {
   try {
     const response = await axios.post(
       `${process.env.NEXT_PUBLIC_API_URL}/auth/login`,

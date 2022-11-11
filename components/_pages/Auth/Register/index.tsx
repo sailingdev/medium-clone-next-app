@@ -79,7 +79,7 @@ const RegisterPage: React.FC = () => {
         />
         <div className={styles.linkWrapper}>
           {!!error && <p className={styles.error}>{error}</p>}
-          <Button type="submit" isPending={isPending} disabled={isPending}>
+          <Button type="submit" isPending={isPending} disabled={isPending} fullWidth>
             Register
           </Button>
           <div>

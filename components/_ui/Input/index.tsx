@@ -16,7 +16,6 @@ type Props = {
   error?: FieldError | any;
   value?: string;
   readonly?: boolean;
-  ref?: any;
 };
 
 const Input: React.FC<Props> = ({
@@ -31,7 +30,6 @@ const Input: React.FC<Props> = ({
   error,
   value,
   readonly = false,
-  ref,
 }) => (
   <div>
     <div className="mt-1">
@@ -41,7 +39,6 @@ const Input: React.FC<Props> = ({
         </label>
       )}
       <input
-        ref={ref}
         id={name}
         name={name}
         type={type}

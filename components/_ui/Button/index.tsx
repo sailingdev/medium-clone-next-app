@@ -12,6 +12,7 @@ type Props = {
   onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
   isPending?: boolean;
   disabled?: boolean;
+  fullWidth?: boolean;
 };
 
 const Button: React.FC<Props> = ({
@@ -22,6 +23,7 @@ const Button: React.FC<Props> = ({
   onClick = () => {},
   isPending = false,
   disabled = false,
+  fullWidth = false,
 }) => {
   return (
     <div>
@@ -29,7 +31,9 @@ const Button: React.FC<Props> = ({
         type={type}
         onClick={onClick}
         disabled={disabled}
-        className={classNames(className, styles.buttonStyle, styles[buttonStyle])}
+        className={classNames(className, styles.buttonStyle, styles[buttonStyle], {
+          "w-full": fullWidth,
+        })}
       >
         {isPending ? (
           <ReactLoading type="bars" width={24} height={24} color="white" />

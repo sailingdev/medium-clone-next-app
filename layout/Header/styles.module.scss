@@ -49,7 +49,7 @@
       }
 
       .loginButton {
-        @apply inline-flex border-transparent border-b-2 items-center px-1 pt-1 text-16 font-medium text-gray-900 transition-colors;
+        @apply desktop:inline-flex hidden border-transparent border-b-2 items-center px-1 pt-1 text-16 font-medium text-gray-900 transition-colors;
       }
 
       .toolWrapper {
@@ -95,17 +95,20 @@
     @apply desktop:hidden z-50 bg-white absolute w-full;
 
     .linkWrapper {
-      @apply pt-2 pb-3 space-y-1;
+      @apply pt-2;
 
       .linkItem {
-        @apply block py-2 pl-3 pr-4 text-16 font-medium text-indigo-700 border-l-4 border-indigo-500 bg-indigo-50;
+        @apply block py-3 pl-3 pr-4 text-16 font-medium text-indigo-700 border-l-4 bg-indigo-50;
+        &.active {
+          @apply border-indigo-500 border-l-4;
+        }
       }
     }
     .profileWrapper {
       @apply pt-4 pb-3 border-t border-gray-200;
 
       .toolWrapper {
-        @apply flex items-center px-4;
+        @apply flex items-center px-4 mb-3;
 
         .imageWrapper {
           @apply flex-shrink-0;
@@ -133,7 +136,7 @@
         }
       }
       .buttonWrapper {
-        @apply mt-3 space-y-1;
+        @apply space-y-1;
 
         .button {
           @apply block px-4 py-2 text-16 font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800;

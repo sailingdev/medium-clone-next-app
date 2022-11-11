@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 
@@ -16,6 +16,13 @@ const navLinkItem = [
   {
     label: "About Us",
     link: "/about-us",
+  },
+];
+
+const navLinkShowItem = [
+  {
+    label: "Create Blog",
+    link: "/create-blog",
   },
 ];
 
@@ -44,6 +51,17 @@ const Header: React.FC = () => {
                       {navItem.label}
                     </NavLink>
                   ))}
+                  {userData &&
+                    navLinkShowItem.map((navItem, index) => (
+                      <NavLink
+                        href={navItem.link}
+                        key={index}
+                        className={styles.link}
+                        activeClassName={styles.active}
+                      >
+                        {navItem.label}
+                      </NavLink>
+                    ))}
                 </div>
               </div>
               <div className={styles.searchWrapper}>
@@ -124,14 +142,28 @@ const Header: React.FC = () => {
             <div className={styles.linkWrapper}>
               {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800" */}
               {navLinkItem.map((navItem, index) => (
-                <Link href={navItem.link} key={index}>
-                  <Disclosure.Button as="div" className={styles.linkItem}>
-                    {navItem.label}
-                  </Disclosure.Button>
-                </Link>
+                <NavLink
+                  href={navItem.link}
+                  key={index}
+                  className={styles.linkItem}
+                  activeClassName={styles.active}
+                >
+                  <Disclosure.Button as="div">{navItem.label}</Disclosure.Button>
+                </NavLink>
               ))}
+              {userData &&
+                navLinkShowItem.map((navItem, index) => (
+                  <NavLink
+                    href={navItem.link}
+                    key={index}
+                    className={styles.linkItem}
+                    activeClassName={styles.active}
+                  >
+                    <Disclosure.Button as="div">{navItem.label}</Disclosure.Button>
+                  </NavLink>
+                ))}
             </div>
-            {userData && (
+            {userData ? (
               <div className={styles.profileWrapper}>
                 <div className={styles.toolWrapper}>
                   <div className={styles.imageWrapper}>
@@ -169,6 +201,16 @@ const Header: React.FC = () => {
                       Logout
                     </div>
                   </Disclosure.Button>
+                </div>
+              </div>
+            ) : (
+              <div className={styles.profileWrapper}>
+                <div className={styles.buttonWrapper}>
+                  <Link href="/auth/login" className={styles.loginButton}>
+                    <Disclosure.Button as="div" className={styles.button}>
+                      Log In
+                    </Disclosure.Button>
+                  </Link>
                 </div>
               </div>
             )}

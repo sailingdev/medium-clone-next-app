@@ -23,8 +23,9 @@ type SocialAppProps = {
 };
 
 const SocialApp = ({ Component, pageProps }: SocialAppProps) => {
-  const dispatch = useAppDispatch();
   const getLayout = Component.getLayout ?? ((page) => page);
+
+  const dispatch = useAppDispatch();
   useEffect(() => {
     const refreshToken = localStorage.getItem("refreshToken");
     if (refreshToken) {
