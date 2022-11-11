@@ -56,6 +56,7 @@ export default function BlogEditor() {
           })}
           placeholder="Title"
           error={errors.title}
+          autoFocus
         />
         <Input
           name="title"

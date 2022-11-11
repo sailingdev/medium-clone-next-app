@@ -15,6 +15,7 @@ type Props = {
   error?: FieldError | any;
   value?: string;
   readonly?: boolean;
+  autoFocus?: boolean;
 };
 
 const Input: React.FC<Props> = ({
@@ -28,6 +29,7 @@ const Input: React.FC<Props> = ({
   error,
   value,
   readonly = false,
+  autoFocus = false,
 }) => (
   <div>
     <div className="mt-1">
@@ -45,6 +47,7 @@ const Input: React.FC<Props> = ({
         className={classNames(styles.inputStyle, className, { [styles.error]: error })}
         value={value}
         readOnly={readonly}
+        autoFocus={autoFocus}
         {...register}
       />
     </div>
