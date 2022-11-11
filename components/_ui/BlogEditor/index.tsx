@@ -10,12 +10,17 @@ import { FieldValues, useForm } from "react-hook-form";
 export default function BlogEditor() {
   const [editor, setEditor] = useState<EditorJS | null>();
 
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const onSubmit = async (data: FieldValues) => {
     try {
       if (editor) {
         const editorData = await editor.save();
+        console.log("editorData: ", editorData);
         data.content = JSON.stringify(editorData);
         console.log(data);
       }
@@ -46,9 +51,11 @@ export default function BlogEditor() {
         <Input
           name="title"
           type="text"
-          register={register("title")}
+          register={register("title", {
+            required: "Enter title",
+          })}
           placeholder="Title"
-          required
+          error={errors.title}
         />
         <Input
           name="title"

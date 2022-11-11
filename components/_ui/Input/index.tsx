@@ -9,7 +9,6 @@ type Props = {
   name: string;
   type: string;
   className?: string;
-  required?: boolean;
   register?: any;
   autoComplete?: string;
   placeholder?: string;
@@ -23,7 +22,6 @@ const Input: React.FC<Props> = ({
   name,
   type,
   className = "",
-  required = false,
   register = {},
   placeholder,
   autoComplete,
@@ -43,7 +41,6 @@ const Input: React.FC<Props> = ({
         name={name}
         type={type}
         autoComplete={autoComplete}
-        required={required}
         placeholder={placeholder}
         className={classNames(styles.inputStyle, className, { [styles.error]: error })}
         value={value}
