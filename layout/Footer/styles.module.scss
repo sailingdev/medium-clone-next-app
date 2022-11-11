@@ -1,5 +1,5 @@
 .wrapper {
-  @apply border-t border-gray-200 bg-white;
+  @apply border-t border-gray-200 bg-white absolute bottom-0 w-full;
 
   .textWrapper {
     @apply container pt-8 px-4 mx-auto tablet:flex tablet:items-center tablet:justify-between;

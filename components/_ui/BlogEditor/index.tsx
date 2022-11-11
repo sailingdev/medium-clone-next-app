@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import EditorJS from "@editorjs/editorjs";
 
 import { EDITOR_JS_TOOLS } from "../../../utils/shared/constant";
@@ -7,7 +7,6 @@ import Button from "../Button";
 
 export default function BlogEditor() {
   const [editor, setEditor] = useState<EditorJS | null>();
-  const didMount = useRef<any>(false);
 
   const publishBlog = () => {
     editor
@@ -25,18 +24,15 @@ export default function BlogEditor() {
   }, [editor]);
 
   useEffect(() => {
-    if (didMount.current) {
-      setEditor(
-        new EditorJS({
-          holder: "editorjs",
-          // autofocus: true,
-          tools: EDITOR_JS_TOOLS,
-          placeholder: "Let`s write an awesome story!",
-        })
-      );
-    } else {
-      didMount.current = true;
-    }
+    console.log("effect");
+    setEditor(
+      new EditorJS({
+        holder: "editorjs",
+        // autofocus: true,
+        tools: EDITOR_JS_TOOLS,
+        placeholder: "Let`s write an awesome story!",
+      })
+    );
     return () => {
       if (editor) {
         editor.destroy();

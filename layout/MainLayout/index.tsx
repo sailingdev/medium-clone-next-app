@@ -3,6 +3,7 @@ import React from "react";
 import Footer from "../Footer";
 import Header from "../Header";
 import PageMeta from "../PageMeta";
+import styles from "./styles.module.scss";
 
 type Props = {
   children: React.ReactNode;
@@ -20,13 +21,13 @@ const MainLayout: React.FC<Props> = ({
   url = "",
 }) => {
   return (
-    <>
+    <div className="relative min-h-screen">
       <PageMeta title={title} description={description} keywords={keywords} url={url} />
 
       <Header />
-      <div className="text-black bg-white">{children}</div>
+      <div className="text-black bg-white pb-100">{children}</div>
       <Footer />
-    </>
+    </div>
   );
 };
 
