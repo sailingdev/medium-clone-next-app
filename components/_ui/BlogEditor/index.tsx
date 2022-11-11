@@ -42,12 +42,13 @@ export default function BlogEditor() {
 
   return (
     <div className={styles.wrapper}>
-      <div id="editorjs" className={styles.editor}></div>
-      {!!editor && (
-        <Button type="button" onClick={publishBlog} className={styles.button}>
-          Publish
-        </Button>
-      )}
+      <div id="editorjs" className={styles.editor}>
+        {!!editor && (
+          <Button type="button" onClick={publishBlog} className={styles.button}>
+            Publish
+          </Button>
+        )}
+      </div>
     </div>
   );
 }
