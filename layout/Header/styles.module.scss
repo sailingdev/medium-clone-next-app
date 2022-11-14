@@ -99,6 +99,7 @@
 
       .linkItem {
         @apply block py-3 pl-3 pr-4 text-16 font-medium text-indigo-700 border-l-4 bg-indigo-50;
+
         &.active {
           @apply border-indigo-500 border-l-4;
         }
