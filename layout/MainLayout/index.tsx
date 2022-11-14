@@ -21,11 +21,11 @@ const MainLayout: React.FC<Props> = ({
   url = "",
 }) => {
   return (
-    <div className="relative min-h-screen text-black bg-white">
+    <div className={styles.wrapper}>
       <PageMeta title={title} description={description} keywords={keywords} url={url} />
 
       <Header />
-      <div className="pb-100">{children}</div>
+      <div className={styles.mainWrapper}>{children}</div>
       <Footer />
     </div>
   );

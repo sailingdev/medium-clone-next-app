@@ -1,0 +1,7 @@
+.wrapper {
+  @apply relative min-h-screen text-black bg-white;
+
+  .mainWrapper {
+    @apply pb-100;
+  }
+}
