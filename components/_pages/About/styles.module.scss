@@ -1,3 +1,7 @@
 .wrapper {
-  @apply max-w-650 mx-auto py-30 tablet:px-0 px-4;
+  @apply h-20 w-20 text-secondary bg-primary;
+}
+
+.open {
+  @apply rotate-180;
 }
