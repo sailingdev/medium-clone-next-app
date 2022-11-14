@@ -1,5 +1,5 @@
-import Image from "next/image";
 import React from "react";
+import Image from "next/image";
 import { useRouter } from "next/router";
 
 import AddComment from "../../_ui/AddComment";
@@ -17,8 +17,8 @@ const BlogPage: React.FC = () => {
         <div className={styles.blog}>
           <Image src={blog.image} alt="image" className={styles.image} />
           <div className={styles.blogWrapper}>
-            <h1 className={styles.category}>{blog.category}</h1>
-            <p className={styles.title}>{blog.title}</p>
+            <h1 className={styles.title}>{blog.title}</h1>
+            <p className={styles.description}>{blog.description}</p>
             <div className={styles.authorWrapper}>
               <Image src={blog.avatar} alt="no avatar" className={styles.avatar} />
               <p>
@@ -28,9 +28,9 @@ const BlogPage: React.FC = () => {
               </p>
             </div>
             <div className={styles.descriptionWrapper}>
-              <p className={styles.description}>{blog.overview}</p>
+              <p className={styles.content}>{blog.overview}</p>
               <Image src={blog.image} alt="no image" className={styles.blogImage} />
-              <p className={styles.description}>{blog.description}</p>
+              <p className={styles.content}>{blog.content}</p>
             </div>
             <hr className={styles.line} />
 

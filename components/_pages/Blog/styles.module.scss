@@ -4,11 +4,11 @@
 .blogWrapper {
   @apply max-w-screen-tablet mx-auto p-20;
 
-  .category {
+  .title {
     @apply text-black text-30 font-normal mt-30;
   }
 
-  .title {
+  .description {
     @apply text-gray-700 text-20 font-light mt-10;
   }
 
@@ -25,7 +25,7 @@
   .descriptionWrapper {
     @apply mb-20;
 
-    .description {
+    .content {
       @apply text-16 whitespace-pre-wrap;
     }
 

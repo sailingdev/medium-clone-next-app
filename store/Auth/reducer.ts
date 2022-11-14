@@ -39,9 +39,11 @@ export const authReducer = createReducer(initialState, (builder) => {
       state.error = undefined;
       state.userData = undefined;
     })
-    .addCase(autoLogin.rejected, (state, { error }) => {
+    .addCase(autoLogin.rejected, (state) => {
       state.isPending = false;
-      state.error = error.message;
+      state.userData = undefined;
+      localStorage.removeItem("accessToken");
+      localStorage.removeItem("refreshToken");
     })
     .addCase(autoLogin.fulfilled, (state, { payload }) => {
       state.isPending = false;

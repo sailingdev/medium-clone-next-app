@@ -17,8 +17,3 @@ interface ILogin {
   email: string;
   password: string;
 }
-
-interface IBlogFormData {
-  title: string;
-  descrption: string;
-}
