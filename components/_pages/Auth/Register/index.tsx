@@ -9,7 +9,7 @@ import Input from "../../../_ui/Input";
 import PhoneInputField from "../../../_ui/PhoneInput";
 import styles from "./styles.module.scss";
 import { RegisterSchema } from "../../../../utils/schema/registerSchema";
-import { registerUser } from "../../../../utils/functions/registerUser";
+import { registerUser } from "../../../../utils/restApi/registerUser";
 
 const RegisterPage: React.FC = () => {
   const router = useRouter();

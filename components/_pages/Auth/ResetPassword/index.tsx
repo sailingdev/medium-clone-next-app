@@ -1,13 +1,14 @@
-import { yupResolver } from "@hookform/resolvers/yup";
-import axios from "axios";
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
+import Link from "next/link";
+import { yupResolver } from "@hookform/resolvers/yup";
+
 import Button from "../../../_ui/Button";
 import Input from "../../../_ui/Input";
+import axios from "../../../../utils/functions/axios";
+import { ResetPasswordSchema } from "../../../../utils/schema/resetPasswordSchema";
+import { useForm } from "react-hook-form";
 
 import styles from "./styles.module.scss";
-import { ResetPasswordSchema } from "../../../../utils/schema/resetPasswordSchema";
-import Link from "next/link";
 
 const ResetPasswordPage: React.FC = () => {
   const {
@@ -21,7 +22,7 @@ const ResetPasswordPage: React.FC = () => {
   const onSubmit = async (data: any) => {
     setIsLogging(true);
     try {
-      const res = await axios.post(
+      const res = await axios(true).post(
         `${process.env.NEXT_APP_API_URL}/auth/reset-password`,
         data
       );
@@ -30,6 +31,7 @@ const ResetPasswordPage: React.FC = () => {
       setIsLogging(false);
     }
   };
+
   return (
     <section>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>

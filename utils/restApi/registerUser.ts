@@ -1,8 +1,8 @@
-import axios from "axios";
+import axios from "../functions/axios";
 
 export const registerUser = async (data: any) => {
   try {
-    const response = await axios.post(
+    const response = await axios().post(
       `${process.env.NEXT_PUBLIC_API_URL}/auth/register`,
       data
     );

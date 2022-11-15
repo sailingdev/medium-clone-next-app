@@ -5,12 +5,15 @@ import { useRouter } from "next/router";
 import AddComment from "../../_ui/AddComment";
 import styles from "./styles.module.scss";
 import { blogList } from "../Home";
+import { useAppSelector } from "../../../hooks/store";
+import { authSelector } from "../../../store/Auth";
 
-const BlogPage: React.FC = () => {
+const DetailPage: React.FC = () => {
   const router = useRouter();
-  const { id } = router.query;
+  const { slug } = router.query;
+  const { userData } = useAppSelector(authSelector);
 
-  const blog = blogList.find((item) => item.id === id);
+  const blog = blogList.find((item) => item.id === slug);
   return (
     <section>
       {!!blog && (
@@ -32,11 +35,15 @@ const BlogPage: React.FC = () => {
               <Image src={blog.image} alt="no image" className={styles.blogImage} />
               <p className={styles.content}>{blog.content}</p>
             </div>
-            <hr className={styles.line} />
+            {userData && (
+              <>
+                <hr className={styles.line} />
 
-            <div className={styles.comment}>
-              <AddComment avatar={blog.avatar} />
-            </div>
+                <div className={styles.comment}>
+                  <AddComment avatar={blog.avatar} />
+                </div>
+              </>
+            )}
           </div>
         </div>
       )}
@@ -44,4 +51,4 @@ const BlogPage: React.FC = () => {
   );
 };
 
-export default BlogPage;
+export default DetailPage;

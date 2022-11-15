@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import dynamic from "next/dynamic";
 
 let BlogEditor = dynamic(() => import("../../_ui/BlogEditor"), {
@@ -7,9 +7,9 @@ let BlogEditor = dynamic(() => import("../../_ui/BlogEditor"), {
 
 const CreateBlogPage = () => {
   return (
-    <Fragment>
+    <>
       <BlogEditor />
-    </Fragment>
+    </>
   );
 };
 

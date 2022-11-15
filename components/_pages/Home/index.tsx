@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import BlogCard from "../../_ui/BlogCard";
 import styles from "./styles.module.scss";
@@ -136,10 +136,17 @@ export const blogList = [
   },
 ];
 
-const HomePage: React.FC = () => {
+type HomePageProps = {
+  blogData: any;
+};
+
+const HomePage: React.FC<HomePageProps> = ({ blogData }) => {
   return (
     <section className={styles.wrapper}>
       <div className={styles.blogWrapper}>
+        {blogData.map((item: IBlogData, index: number) => (
+          <BlogCard image={""} key={item.userId} {...item} />
+        ))}
         {blogList.map((item) => (
           <BlogCard key={item.id} {...item} />
         ))}

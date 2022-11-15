@@ -1,9 +1,10 @@
 import React from "react";
 
-import BlogPage from "../../components/_pages/Blog";
+import axios from "../../utils/functions/axios";
+import DetailPage from "../../components/_pages/Detail";
 import MainLayout from "../../layout/MainLayout";
 
-const Blog = () => <BlogPage />;
+const Blog = () => <DetailPage />;
 
 Blog.getLayout = function getLayout(page: React.ReactElement) {
   return (

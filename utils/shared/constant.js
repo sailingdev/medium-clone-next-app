@@ -13,14 +13,12 @@ export const EDITOR_JS_TOOLS = {
     config: {
       uploader: {
         uploadByFile(file) {
-          console.log("file: ", file);
           const url = URL.createObjectURL(file);
-          // get the uploaded image path, pushing image path to image array
-          // imageArray.push(res.data.data);
           return {
             success: 1,
             file: {
               url: url,
+              file: file,
             },
           };
         },

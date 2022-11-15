@@ -17,3 +17,11 @@ interface ILogin {
   email: string;
   password: string;
 }
+
+interface IBlogData {
+  userId: string;
+  image?: string;
+  title: string;
+  description: string;
+  slug: string;
+}

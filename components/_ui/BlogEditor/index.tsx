@@ -3,10 +3,11 @@ import EditorJS from "@editorjs/editorjs";
 
 import Button from "../Button";
 import Input from "../Input";
+import axios from "../../../utils/functions/axios";
 import styles from "./styles.module.scss";
 import { EDITOR_JS_TOOLS } from "../../../utils/shared/constant";
 import { FieldValues, useForm } from "react-hook-form";
-import { publishBlog } from "../../../utils/functions/publishBlog";
+import { publishBlog } from "../../../utils/restApi/publishBlog";
 
 export default function BlogEditor() {
   const [editor, setEditor] = useState<EditorJS | null>();
@@ -23,10 +24,29 @@ export default function BlogEditor() {
       setIsPending(true);
       if (editor) {
         const editorData = await editor.save();
-        console.log("editorData: ", editorData);
+        await Promise.all(
+          editorData.blocks.map(async (item, index) => {
+            if (item.type === "image") {
+              const formData = new FormData();
+              formData.append("directory", "blogs");
+              formData.append("file", item.data.file.file);
+              const res = await axios(true).post(
+                `${process.env.NEXT_PUBLIC_API_URL}/file/create`,
+                formData
+              );
+              editorData.blocks[index].data.file.url = res.data.path;
+              delete editorData.blocks[index].data.file.file;
+            }
+          })
+        );
+
+        const bannerArray = editorData.blocks.find((item) => item.type === "image");
+        const banner = bannerArray?.data.file.url;
         data.content = JSON.stringify(editorData);
-        console.log(data);
-        publishBlog(data);
+        if (banner) {
+          data.banner = banner;
+        }
+        await publishBlog(data);
         setIsPending(false);
       }
     } catch (error) {

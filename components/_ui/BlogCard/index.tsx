@@ -6,14 +6,24 @@ import classNames from "classnames";
 import styles from "./styles.module.scss";
 
 type Props = {
-  id: string;
+  userId?: string;
+  id?: string;
   className?: string;
   image: string | StaticImageData;
   title?: string;
   description?: string;
+  slug?: string;
 };
 
-const BlogCard: React.FC<Props> = ({ className = "", image, title, description, id }) => {
+const BlogCard: React.FC<Props> = ({
+  className = "",
+  userId,
+  image,
+  title,
+  description,
+  slug,
+  id,
+}) => {
   return (
     <Link className={classNames(styles.wrapper, className)} href={`/blog/${id}`}>
       <div className={styles.imageWrapper}>

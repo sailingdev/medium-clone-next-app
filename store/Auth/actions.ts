@@ -1,11 +1,11 @@
 import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import axios from "../../utils/functions/axios";
 
 export const RemoveError = createAction("auth/removeError");
 
 export const login = createAsyncThunk("auth/login", async (data: ILogin) => {
   try {
-    const response = await axios.post(
+    const response = await axios().post(
       `${process.env.NEXT_PUBLIC_API_URL}/auth/login`,
       data
     );
@@ -21,7 +21,7 @@ export const autoLogin = createAsyncThunk(
   "auth/autoLogin",
   async (refreshToken: string) => {
     try {
-      const response = await axios.post(
+      const response = await axios().post(
         `${process.env.NEXT_PUBLIC_API_URL}/auth/refreshToken`,
         {
           refreshToken,
@@ -38,7 +38,7 @@ export const autoLogin = createAsyncThunk(
 
 export const logout = createAsyncThunk("auth/logout", async (refreshToken: string) => {
   try {
-    await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/auth/revokeRefreshTokens`, {
+    await axios().post(`${process.env.NEXT_PUBLIC_API_URL}/auth/revokeRefreshTokens`, {
       refreshToken,
     });
   } catch (error: any) {
