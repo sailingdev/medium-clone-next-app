@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import { authSelector } from "../../store/Auth";
 import logoImage from "../../assets/image/logo.png";
 import styles from "./styles.module.scss";
+import Container from "../../components/_ui/Container";
 
 type Props = {
   children: React.ReactNode;
@@ -25,7 +26,7 @@ const LoginPage: React.FC<Props> = ({ children, authTitle }) => {
 
   return (
     <>
-      <div className={styles.wrapper}>
+      <Container className={styles.wrapper}>
         <div className={styles.mainWrapper}>
           <div className={styles.logoWrapper}>
             <Link href="/">
@@ -37,7 +38,7 @@ const LoginPage: React.FC<Props> = ({ children, authTitle }) => {
             <div className={styles.formWrapper}>{children}</div>
           </div>
         </div>
-      </div>
+      </Container>
     </>
   );
 };

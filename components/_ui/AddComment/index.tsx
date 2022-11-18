@@ -1,31 +1,44 @@
 import Image, { StaticImageData } from "next/image";
 import React from "react";
+import { useForm } from "react-hook-form";
 
+import { addComment } from "../../../utils/restApi/addComment";
+import Button from "../Button";
 import styles from "./styles.module.scss";
+import userAvatar from "../../../assets/image/person.png";
 
 type Props = {
-  avatar: string | StaticImageData;
+  avatar?: string | StaticImageData;
+  id: number;
 };
 
-const AddComment: React.FC<Props> = ({ avatar }) => {
+const AddComment: React.FC<Props> = ({ avatar, id }) => {
+  const { register, handleSubmit, reset } = useForm();
+  const onSubmit = async (data: any) => {
+    try {
+      data.blogId = id;
+      await addComment(data);
+    } catch (error) {}
+    console.log(data);
+    reset();
+  };
   return (
     <div className={styles.wrapper}>
       <div className={styles.imageWrapper}>
-        <Image src={avatar} alt="no avatar" className={styles.image} />
+        <Image src={avatar ?? userAvatar} alt="no avatar" className={styles.image} />
       </div>
       <div className={styles.formWrapper}>
-        <form>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.comment}>
             <label htmlFor="comment" className={styles.label}>
               Add your comment
             </label>
             <textarea
               rows={3}
-              name="comment"
               id="comment"
               className={styles.textarea}
               placeholder="Add your comment..."
-              defaultValue={""}
+              {...register("comment", { required: true })}
             />
 
             {/* Spacer element to match the height of the toolbar */}
@@ -36,9 +49,9 @@ const AddComment: React.FC<Props> = ({ avatar }) => {
           </div>
 
           <div className={styles.buttonWrapper}>
-            <button type="button" className={styles.button}>
+            <Button type="submit" className={styles.button}>
               Post
-            </button>
+            </Button>
           </div>
         </form>
       </div>

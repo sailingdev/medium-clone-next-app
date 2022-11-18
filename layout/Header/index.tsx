@@ -6,7 +6,7 @@ import { Disclosure, Menu, Transition } from "@headlessui/react";
 
 import NavLink from "../../components/_ui/NavLink";
 import SearchBox from "../../components/_ui/SearchBox";
-import avatar from "../../assets/image/testimonial-2.jpg";
+import avatar from "../../assets/image/person.png";
 import logoImage from "../../assets/image/logo.png";
 import styles from "./styles.module.scss";
 import { authSelector, logout } from "../../store/Auth";
@@ -110,7 +110,7 @@ const Header: React.FC = () => {
                     >
                       <Menu.Items className={styles.menuItemWrapper}>
                         <Menu.Item>
-                          <Link href="/about" className={styles.menuItem}>
+                          <Link href="/profile" className={styles.menuItem}>
                             Your Profile
                           </Link>
                         </Menu.Item>
@@ -185,7 +185,7 @@ const Header: React.FC = () => {
                   </button>
                 </div>
                 <div className={styles.buttonWrapper}>
-                  <Link href="/">
+                  <Link href="/profile">
                     <Disclosure.Button as="div" className={styles.button}>
                       Your Profile
                     </Disclosure.Button>

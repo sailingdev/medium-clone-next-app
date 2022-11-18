@@ -5,12 +5,10 @@ import MainLayout from "../layout/MainLayout";
 import axios from "../utils/functions/axios";
 
 type Props = {
-  blogData: IBlogData;
+  blogData: any;
 };
 
 const Home = ({ blogData }: Props) => {
-  console.log("blogData: ", blogData);
-
   return <HomePage blogData={blogData} />;
 };
 
@@ -27,8 +25,10 @@ Home.getLayout = function getLayout(page: React.ReactElement) {
 };
 
 export async function getStaticProps() {
-  const res = await axios().get(`${process.env.NEXT_PUBLIC_API_URL}/blog/all`);
-  const blogData = res.data;
+  const res = await axios().get(
+    `${process.env.NEXT_PUBLIC_API_URL}/blog/all?limit=8&pageNum=1`
+  );
+  const blogData = res.data.data;
   return { props: { blogData }, revalidate: 10 };
 }
 

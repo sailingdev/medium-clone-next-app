@@ -2,10 +2,10 @@
   @apply bg-white min-h-screen flex justify-center items-center;
 
   .mainWrapper {
-    @apply flex min-h-full flex-col justify-center py-12 px-15 w-full;
+    @apply flex min-h-full flex-col justify-center py-12  w-full;
 
     .logoWrapper {
-      @apply phone:mx-auto phone:w-full phone:max-w-md;
+      @apply mx-auto  max-w-md w-full;
 
       .image {
         @apply w-auto mx-auto h-70;
@@ -18,10 +18,10 @@
   }
 
   .subWrapper {
-    @apply mt-10 phone:mx-auto phone:w-500 phone:max-w-md w-full;
+    @apply mt-10 mx-auto max-w-md w-full;
 
     .formWrapper {
-      @apply bg-white py-8 px-4 shadow phone:rounded-lg phone:px-10;
+      @apply bg-white py-8 shadow phone:rounded-lg;
     }
   }
 }

@@ -7,9 +7,9 @@ let BlogEditor = dynamic(() => import("../../_ui/BlogEditor"), {
 
 const CreateBlogPage = () => {
   return (
-    <>
+    <section>
       <BlogEditor />
-    </>
+    </section>
   );
 };
 

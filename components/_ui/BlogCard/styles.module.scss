@@ -19,11 +19,11 @@
       @apply absolute bottom-0 w-full text-white opacity-80 transition-all;
 
       .title {
-        @apply text-20 bg-blue-500 px-2 py-1 font-bold w-fit rounded-tr-xl;
+        @apply text-20 bg-blue-500 px-2 py-1 font-bold  rounded-tr-xl truncate w-full;
       }
 
       .description {
-        @apply text-16 font-semibold bg-purple-600 px-2 py-1;
+        @apply text-16 font-semibold bg-purple-600 px-2 py-1 truncate;
       }
     }
   }

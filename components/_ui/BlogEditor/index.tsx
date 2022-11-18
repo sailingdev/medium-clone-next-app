@@ -17,6 +17,7 @@ export default function BlogEditor() {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
 
   const onSubmit = async (data: FieldValues) => {
@@ -24,6 +25,7 @@ export default function BlogEditor() {
       setIsPending(true);
       if (editor) {
         const editorData = await editor.save();
+        console.log("editor1", editorData);
         await Promise.all(
           editorData.blocks.map(async (item, index) => {
             if (item.type === "image") {
@@ -48,6 +50,8 @@ export default function BlogEditor() {
         }
         await publishBlog(data);
         setIsPending(false);
+        editor.clear();
+        reset();
       }
     } catch (error) {
       setIsPending(false);

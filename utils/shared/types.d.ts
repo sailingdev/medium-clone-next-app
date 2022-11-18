@@ -19,9 +19,15 @@ interface ILogin {
 }
 
 interface IBlogData {
-  userId: string;
-  image?: string;
+  userId: number;
+  banner: string;
   title: string;
   description: string;
   slug: string;
+  id: number;
+  content: string;
+  createdAt: string;
+  updatedAt: string;
+  Comment: any[];
+  inEnd?: boolean;
 }
