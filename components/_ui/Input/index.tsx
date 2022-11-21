@@ -16,6 +16,8 @@ type Props = {
   value?: string;
   readonly?: boolean;
   autoFocus?: boolean;
+  inputStyle?: "default" | "profile";
+  defaultValue?: string;
 };
 
 const Input: React.FC<Props> = ({
@@ -30,6 +32,8 @@ const Input: React.FC<Props> = ({
   value,
   readonly = false,
   autoFocus = false,
+  inputStyle = "default",
+  defaultValue,
 }) => (
   <div>
     <div className="mt-1">
@@ -41,10 +45,13 @@ const Input: React.FC<Props> = ({
       <input
         id={name}
         name={name}
+        defaultValue={defaultValue}
         type={type}
         autoComplete={autoComplete}
         placeholder={placeholder}
-        className={classNames(styles.inputStyle, className, { [styles.error]: error })}
+        className={classNames(styles.inputStyle, styles[inputStyle], className, {
+          [styles.error]: error,
+        })}
         value={value}
         readOnly={readonly}
         autoFocus={autoFocus}

@@ -1,3 +1,87 @@
+.divide {
+  @apply divide-y divide-gray-200;
+}
+
 .wrapper {
-  @apply;
+  @apply px-4 py-6  phone:p-6 desktop:pb-8;
+
+  .title {
+    @apply font-medium text-gray-900 text-24;
+  }
+
+  .text {
+    @apply mt-1 text-gray-500 text-14;
+  }
+
+  .imageWrapper {
+    @apply ml-6 mt-6;
+
+    .imageLabel {
+      @apply font-medium text-gray-700 text-14;
+    }
+
+    .phoneImageWrapper {
+      @apply mt-1 desktop:hidden;
+
+      .phoneImage {
+        @apply flex items-center;
+
+        .avatarWrapper {
+          @apply flex-shrink-0 inline-block w-12 h-12 overflow-hidden rounded-full;
+
+          .avatar {
+            @apply w-full h-full rounded-full;
+          }
+        }
+
+        .toolWrapper {
+          @apply ml-5 rounded-md shadow-sm;
+
+          .labelWrapper {
+            @apply relative flex items-center justify-center px-3 py-2 border border-gray-300 rounded-md focus-within:ring-2 focus-within:ring-sky-500 focus-within:ring-offset-2 hover:bg-gray-50;
+
+            .label {
+              @apply relative font-medium text-gray-700 pointer-events-none text-14;
+            }
+
+            .input {
+              @apply absolute w-full h-full border-gray-300 rounded-md opacity-0 cursor-pointer;
+            }
+          }
+        }
+      }
+    }
+
+    .desktopImageWrapper {
+      @apply relative hidden overflow-hidden w-160 rounded-full desktop:block;
+
+      .image {
+        @apply relative rounded-full w-160 h-160;
+      }
+
+      .label {
+        @apply absolute inset-0 flex items-center justify-center w-160 h-160 rounded-full font-medium text-white bg-black bg-opacity-50 opacity-0 text-14 hover:opacity-100;
+
+        .input {
+          @apply absolute inset-0 w-full h-full border-gray-300 rounded-full opacity-0 cursor-pointer;
+        }
+      }
+    }
+  }
+
+  .inputWrapper {
+    @apply grid desktop:grid-cols-2 grid-cols-1 gap-6 mt-6;
+
+    .emailInput {
+      @apply col-span-2;
+    }
+  }
+}
+
+.divide {
+  @apply divide-y divide-gray-200;
+
+  .buttonWrapper {
+    @apply flex justify-end py-4 px-4 space-x-4;
+  }
 }

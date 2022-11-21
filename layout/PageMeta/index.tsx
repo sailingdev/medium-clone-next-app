@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import styles from "./styles.module.scss";
 
 type PageMetaProps = {
   title: string;

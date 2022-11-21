@@ -110,7 +110,7 @@ const Header: React.FC = () => {
                     >
                       <Menu.Items className={styles.menuItemWrapper}>
                         <Menu.Item>
-                          <Link href="/profile" className={styles.menuItem}>
+                          <Link href="user/profile" className={styles.menuItem}>
                             Your Profile
                           </Link>
                         </Menu.Item>
@@ -185,7 +185,7 @@ const Header: React.FC = () => {
                   </button>
                 </div>
                 <div className={styles.buttonWrapper}>
-                  <Link href="/profile">
+                  <Link href="user/profile">
                     <Disclosure.Button as="div" className={styles.button}>
                       Your Profile
                     </Disclosure.Button>

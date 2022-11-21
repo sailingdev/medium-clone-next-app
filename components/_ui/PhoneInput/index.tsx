@@ -3,7 +3,7 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { Controller } from "react-hook-form";
 import styles from "./styles.module.scss";
-// import { phoneValidation } from "services/validations";
+import classNames from "classnames";
 
 type Props = {
   control: any;
@@ -13,6 +13,7 @@ type Props = {
   defaultValue?: string;
   country?: string;
   regions?: string[];
+  inputStyle?: "default" | "profile";
 };
 
 const PhoneInputField: React.FC<Props> = ({
@@ -23,6 +24,7 @@ const PhoneInputField: React.FC<Props> = ({
   country = "us",
   regions = ["america", "europe", "asia", "oceania", "africa"],
   className,
+  inputStyle = "default",
 }) => {
   return (
     <div className={className}>
@@ -35,7 +37,6 @@ const PhoneInputField: React.FC<Props> = ({
         <Controller
           control={control}
           name={name}
-          // rules={phoneValidation}
           defaultValue={defaultValue}
           render={({ field: { onChange, value }, fieldState: { error } }) => (
             <div>
@@ -45,7 +46,7 @@ const PhoneInputField: React.FC<Props> = ({
                 value={value}
                 onChange={onChange}
                 inputProps={{ name }}
-                inputClass={styles.inputStyle}
+                inputClass={classNames(styles.inputStyle, styles[inputStyle])}
                 buttonClass={styles.countryPicker}
               />
               {error ? (

@@ -1,6 +1,6 @@
 import React from "react";
-import ProfilePage from "../components/_pages/Profile";
-import MainLayout from "../layout/MainLayout";
+import ProfilePage from "../../components/_pages/Profile";
+import UserLayout from "../../layout/UserLayout";
 
 const Profile = () => {
   return <ProfilePage />;
@@ -8,13 +8,13 @@ const Profile = () => {
 
 Profile.getLayout = function getLayout(page: React.ReactElement) {
   return (
-    <MainLayout
-      title="Home"
+    <UserLayout
+      title="Profile"
       description="this is homepage description"
       keywords="this is keywords"
     >
       {page}
-    </MainLayout>
+    </UserLayout>
   );
 };
 

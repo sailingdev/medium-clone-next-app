@@ -4,11 +4,12 @@ interface IUserToken {
 }
 
 interface IUserData {
-  id: string;
-  phone: string;
+  id?: string;
+  phone?: string;
   email?: string;
-  firstname: string;
-  lastname: string;
+  avatar?: string;
+  firstname?: string;
+  lastname?: string;
   createdAt?: string;
   updatedAt?: string;
 }

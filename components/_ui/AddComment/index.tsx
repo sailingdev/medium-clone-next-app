@@ -19,7 +19,6 @@ const AddComment: React.FC<Props> = ({ avatar, id }) => {
       data.blogId = id;
       await addComment(data);
     } catch (error) {}
-    console.log(data);
     reset();
   };
   return (

@@ -1,5 +1,13 @@
 .inputStyle {
-  @apply appearance-none rounded-md block w-full py-2 text-16 border border-gray-300 placeholder-gray-400 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 bg-white text-black h-auto #{!important};
+  @apply appearance-none rounded-md block w-full py-2 text-16 border border-gray-300  shadow-sm focus:border-indigo-500 focus:outline-none  bg-white text-black h-auto #{!important};
+
+  &.default {
+    @apply focus:outline-none focus:border-indigo-500 focus:ring-indigo-500;
+  }
+
+  &.profile {
+    @apply focus:outline-none focus:border-sky-500  focus:ring-sky-500 #{!important};
+  }
 }
 
 .countryPicker {
@@ -11,5 +19,5 @@
 }
 
 .label {
-  @apply block text-16 font-medium text-gray-700;
+  @apply block text-14 font-medium text-gray-700;
 }

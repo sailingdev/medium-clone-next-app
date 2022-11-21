@@ -25,7 +25,6 @@ export default function BlogEditor() {
       setIsPending(true);
       if (editor) {
         const editorData = await editor.save();
-        console.log("editor1", editorData);
         await Promise.all(
           editorData.blocks.map(async (item, index) => {
             if (item.type === "image") {
@@ -33,7 +32,7 @@ export default function BlogEditor() {
               formData.append("directory", "blogs");
               formData.append("file", item.data.file.file);
               const res = await axios(true).post(
-                `${process.env.NEXT_PUBLIC_API_URL}/file/create`,
+                `${process.env.NEXT_PUBLIC_API_URL}/file/upload`,
                 formData
               );
               editorData.blocks[index].data.file.url = res.data.path;

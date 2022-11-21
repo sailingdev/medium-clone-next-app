@@ -9,7 +9,6 @@ export type BlogDetailPageProps = {
 };
 
 const Blog = ({ blog }: BlogDetailPageProps) => {
-  console.log(blog);
   return <DetailPage blog={blog} />;
 };
 

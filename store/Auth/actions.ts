@@ -46,3 +46,17 @@ export const logout = createAsyncThunk("auth/logout", async (refreshToken: strin
     throw error?.response?.data ?? error.message;
   }
 });
+
+export const profileUpdate = createAsyncThunk("user/update", async (data: IUserData) => {
+  try {
+    const response = await axios(true).post(
+      `${process.env.NEXT_PUBLIC_API_URL}/user/update`,
+      data
+    );
+    console.log(response.data);
+    return response.data;
+  } catch (error: any) {
+    console.error("errorInThunk =>", error);
+    throw error?.response?.data ?? error.message;
+  }
+});

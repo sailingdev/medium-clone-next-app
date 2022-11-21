@@ -13,6 +13,7 @@ export const EDITOR_JS_TOOLS = {
     config: {
       uploader: {
         uploadByFile(file) {
+          console.log("file: ", file);
           const url = URL.createObjectURL(file);
           return {
             success: 1,

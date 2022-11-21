@@ -6,7 +6,7 @@ import styles from "./styles.module.scss";
 
 type Props = {
   type?: "submit" | "button" | "reset";
-  buttonStyle?: "primary" | "secondary";
+  buttonStyle?: "primary" | "secondary" | "profile" | "white";
   className?: string;
   children: ReactNode;
   onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
@@ -16,7 +16,7 @@ type Props = {
 };
 
 const Button: React.FC<Props> = ({
-  type,
+  type = "button",
   buttonStyle = "primary",
   className = "",
   children,

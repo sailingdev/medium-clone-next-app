@@ -24,8 +24,11 @@
           .link {
             @apply inline-flex border-transparent border-b-2 items-center px-1 pt-1 text-16 font-medium text-gray-900 transition-colors;
 
-            &.active,
             &:hover {
+              @apply border-gray-300;
+            }
+
+            &.active {
               @apply border-indigo-500;
             }
           }

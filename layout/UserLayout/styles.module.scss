@@ -1,0 +1,71 @@
+.wrapper {
+  @apply relative min-h-screen text-black bg-white;
+
+  .mainWrapper {
+    @apply pb-90;
+
+    .headerWrapper {
+      @apply pb-32 bg-sky-800;
+
+      .header {
+        @apply relative py-40 container mx-auto;
+
+        .textWrapper {
+          @apply px-4 mx-auto max-w-screen-large;
+
+          .text {
+            @apply font-bold  text-white text-30;
+          }
+        }
+      }
+    }
+
+    .main {
+      @apply relative -mt-32 container mx-auto px-4;
+
+      .panelWrapper {
+        @apply overflow-hidden bg-white rounded-lg shadow mb-6 desktop:mb-64;
+
+        .divide {
+          @apply divide-y divide-gray-200 desktop:grid desktop:grid-cols-12 desktop:divide-y-0 desktop:divide-x;
+
+          .asideWrapper {
+            @apply py-6 desktop:col-span-3;
+
+            .nav {
+              @apply space-y-1;
+
+              .navLink {
+                @apply border-l-4 px-3 py-2 flex items-center text-14 font-medium;
+
+                &:hover {
+                  @apply bg-teal-50 text-gray-600;
+
+                  .icon {
+                    @apply text-gray-500;
+                  }
+                }
+
+                &.active {
+                  @apply bg-teal-50 border-teal-500 text-teal-500 hover:bg-teal-50 hover:text-teal-500;
+
+                  .icon {
+                    @apply text-teal-500;
+                  }
+                }
+
+                .icon {
+                  @apply flex-shrink-0 -ml-1 mr-3 h-6 w-6 text-gray-500;
+                }
+              }
+            }
+          }
+
+          .panel {
+            @apply divide-y divide-gray-200 desktop:col-span-9;
+          }
+        }
+      }
+    }
+  }
+}

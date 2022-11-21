@@ -1,6 +1,6 @@
 import { createReducer } from "@reduxjs/toolkit";
 
-import { logout, login, RemoveError, autoLogin } from "./actions";
+import { logout, login, RemoveError, autoLogin, profileUpdate } from "./actions";
 
 type authState = {
   isSuccess: boolean;
@@ -51,6 +51,19 @@ export const authReducer = createReducer(initialState, (builder) => {
       state.userData = payload.data.user;
       localStorage.setItem("accessToken", payload.data.token.accessToken);
       localStorage.setItem("refreshToken", payload.data.token.refreshToken);
+    })
+    .addCase(profileUpdate.pending, (state) => {
+      state.isPending = true;
+      state.error = undefined;
+      state.userData = undefined;
+    })
+    .addCase(profileUpdate.rejected, (state, { error }) => {
+      state.isPending = false;
+      state.error = error.message;
+    })
+    .addCase(profileUpdate.fulfilled, (state, { payload }) => {
+      state.isPending = false;
+      state.userData = payload.data;
     })
     .addCase(logout.fulfilled, (state) => {
       state.userData = undefined;
